@@ -10,8 +10,6 @@ import {
   translate,
 } from 'react-switch-lang';
 
-import { connect } from 'react-redux';
-
 import {English,Deutsch,Español,Français,Português,简体中文,Notification,DeliveryProcessing,OrderComplete,TicketsGenerated,DeliveryComplete,CheckAllNotification,ViewAll,MessageBox,EricaHughes,KoriThomas,Admin,Account,Inbox,Taskboard,LogOut,AinChavez,CheckOut,ShopingBag,OrderTotal,GoToShopingBag} from '../../constant'
 
 import en from '../../assets/i18n/en.json';

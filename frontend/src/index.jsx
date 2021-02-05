@@ -41,15 +41,14 @@ const Root = (props) =>  {
         <Provider store={store}>
         <BrowserRouter basename={`cabinet/`}>
         <Switch>
-
-          <Route path='/login' component={Login} />
-          <App>
-          <TransitionGroup>
-            {routes.map(({ path, Component }) => (
-                <PrivateRoute key={path} path={path} component={Component} anim={anim}/>
-                ))}
-          </TransitionGroup>
-          </App>
+            <Route path='/login' component={Login} />
+            <App>
+                <TransitionGroup>
+                  {routes.map(({ path, Component }) => (
+                      <PrivateRoute key={path} path={path} component={Component} anim={anim}/>
+                      ))}
+                </TransitionGroup>
+            </App>
         </Switch>
         </BrowserRouter>
         </Provider>

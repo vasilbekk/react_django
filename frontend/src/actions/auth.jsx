@@ -38,7 +38,8 @@ export const login = (username, password) =>  dispatch => {
 
 	// Request Body
 	const body = JSON.stringify({username, password})
-
+	dispatch({type: USER_LOADING})
+	
 	api.post('/auth/login/', body)
 		.then(res => {
 			dispatch({
