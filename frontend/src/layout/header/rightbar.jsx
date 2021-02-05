@@ -137,7 +137,9 @@ const Rightbar = (props) => {
               </div>
             </div>
           </li>
-          <li><span className="header-search"><Search onClick={() => SeacrhResposive(searchresponsive)} /></span></li>
+          
+          {/* Search button  */}
+          {/*<li><span className="header-search"><Search onClick={() => SeacrhResposive(searchresponsive)} /></span></li>*/}
           <li className="onhover-dropdown">
             <div className="notification-box" onClick={() => setNotificationDropDown(!notificationDropDown)}><Bell /><span className="badge badge-pill badge-secondary">2</span></div>
             <ul className={`notification-dropdown onhover-show-div ${notificationDropDown ? "active" : ""}`}>
@@ -161,11 +163,15 @@ const Rightbar = (props) => {
               </li>
             </ul>
           </li>
-          <Bookmark/>
+
+        {/* Закладки   */}
+          {/*<Bookmark/>*/}
           <li>
             <div className="mode" onClick={() => MoonlightToggle(moonlight)}><i className={`fa ${moonlight ? 'fa-lightbulb-o' : 'fa-moon-o'}`}></i></div>
           </li>
-          <li className="cart-nav onhover-dropdown">
+
+        {/* Кнопка корзины */}
+          {/*<li className="cart-nav onhover-dropdown">
             <div className="cart-box" onClick={() => setCartDropDown(!cartDropdown)}><ShoppingCart/><span className="badge badge-pill badge-primary">{"2"}</span></div>
             <ul className={`cart-dropdown onhover-show-div ${cartDropdown ? "active" : ""}`}>
               <li>
@@ -221,8 +227,10 @@ const Rightbar = (props) => {
                 <Button color="secondary" className="btn-block view-cart mt-2">{CheckOut}</Button>
               </li>
             </ul>
-          </li>
-          <li className="onhover-dropdown" onClick={() => setChatDropDown(!chatDropDown)}><MessageSquare />
+          </li>*/}
+
+        {/* Чат */}
+          {/*<li className="onhover-dropdown" onClick={() => setChatDropDown(!chatDropDown)}><MessageSquare />
             <ul className={`chat-dropdown onhover-show-div ${chatDropDown ? "active" : ""}`}>
               <li>
                 <MessageSquare />
@@ -257,7 +265,7 @@ const Rightbar = (props) => {
               </li>
               <li className="text-center"> <button className="btn btn-primary">{ViewAll}     </button></li>
             </ul>
-          </li>
+          </li>*/}
           <li className="maximize"><a className="text-dark" href="#javascript" onClick={goFull}><Minimize /></a></li>
           <li className="profile-nav onhover-dropdown p-0">
             <div className="media profile-media">

@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth'
+import Loader from '../../layout/loader'
 
 
 export class Login extends Component {
@@ -33,6 +34,7 @@ export class Login extends Component {
 
 		return (
 			<center>
+			<Loader />
 				<form onSubmit={this.onSubmit}>
 					<h1>Username</h1>
 					<input autoComplete='off' type='text' name='username' value={this.state.username} onChange={this.onChange}/>

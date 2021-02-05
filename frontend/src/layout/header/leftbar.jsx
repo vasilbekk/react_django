@@ -137,8 +137,8 @@ const Leftbar = (props) => {
   }
 
   const OnLevelMenu = (menu) => {
-    setBonusUI(false)
-    document.querySelector(".mega-menu-container").classList.remove("d-block")
+    // setBonusUI(false)
+    // document.querySelector(".mega-menu-container").classList.remove("d-block")
     setLevelMenu(!menu)
   }
 
@@ -154,11 +154,11 @@ const Leftbar = (props) => {
         <div className="toggle-sidebar" onClick={() => responsive_openCloseSidebar(sidebartoggle)} style={window.innerWidth <= 991 ? {display:"block"} : {display:"none"}}>
           <Sliders className="status_toggle middle sidebar-toggle" id="sidebar-toggle" />
         </div>
-      </div>
+      </div>  
       <Col className="left-header horizontal-wrapper pl-0">
         <ul className="horizontal-menu">
-          <li className="mega-menu outside">
-          <a className={`nav-link ${bonusui ? 'active' : ''}`} href="#javascript" onClick={() => ToggleBonusUI(bonusui)}><Layers /><span>{BonusUi}</span></a>
+          {/*<li className="mega-menu outside">
+            <a className={`nav-link ${bonusui ? 'active' : ''}`} href="#javascript" onClick={() => ToggleBonusUI(bonusui)}><Layers /><span>{BonusUi}</span></a>
             <div className="mega-menu-container nav-submenu menu-to-be-close" style={bonusui ? { display: "" } : { display: "none" }}>
                 <Container fluid={true}>
                   <Row>
@@ -219,7 +219,7 @@ const Leftbar = (props) => {
                   </Row>
                 </Container>
             </div>
-          </li>
+          </li>*/}
           <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><Inbox/><span>{LevelMenu}</span></a>
             <ul className="header-level-menu menu-to-be-close" style={levelMenu ? { display: "" } : { display: "none" }}>
               <li><GitPullRequest/><span>{FileManager}</span></li>

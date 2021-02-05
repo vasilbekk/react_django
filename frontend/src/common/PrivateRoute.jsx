@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CSSTransition,TransitionGroup } from 'react-transition-group'
 
-
 const PrivateRoute = ({ path, component: Component, anim, auth, ...rest }) => (
   <Route {...rest} exact path={`${process.env.PUBLIC_URL}${path}`}>
     {({ match }) => (
