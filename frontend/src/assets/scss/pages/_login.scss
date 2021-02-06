@@ -180,6 +180,38 @@
 
 }
 
+
+/* Dark mode */
+body.dark-only {
+
+  .login__container {
+
+      .login__input-div > .login__i > i {
+        color: #8a8a8a;
+      }
+      .login__input-div.focus > .login__i > i{
+        color: #fff;
+      }
+      .login__login-content .login__input-div {
+        border-bottom: 2px solid #8a8a8a;
+      }
+
+      .login__input-div:before, .login__input-div:after {
+        background-color: #fff;
+      }
+
+      .login__login-content h2 {
+        color: #fff;
+      }
+      .login__input-div > div > input {
+        color: #fff;
+      }
+
+  }
+}
+/* /Dark mode */
+
+
 @media screen and (max-width: 1050px){
     .login__container{
       grid-gap: 5rem;

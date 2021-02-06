@@ -24,6 +24,8 @@ import { InputGroup, InputGroupAddon, Button } from 'reactstrap';
 import { getUserFromLocalStorage, logout } from '../../actions/auth'
 import store from '../../store'
 
+import { Link } from 'react-router-dom'
+
 setTranslations({ en, es, pt, fr, du, cn, ae });
 setDefaultLanguage('en');
 setLanguageCookie();
@@ -273,10 +275,10 @@ const Rightbar = (props) => {
               </div>
             </div>
             <ul className="profile-dropdown onhover-show-div">
-              <li><User /><span>{Account} </span></li>
-              <li><Mail /><span>{Inbox}</span></li>
-              <li><FileText /><span>{Taskboard}</span></li>
-              <li><LogIn /><span onClick={(e) => handleLogout(e)}>{LogOut}</span></li>
+              <li><Link to='/'><User /><span>{Account} </span></Link></li>
+              <li><Link to='/'><Mail /><span>{Inbox}</span></Link></li>
+              <li><Link to='/'><FileText /><span>{Taskboard}</span></Link></li>
+              <li><Link to='/'><LogIn /><span onClick={(e) => handleLogout(e)}>{LogOut}</span></Link></li>
             </ul>
           </li>
         </ul>
