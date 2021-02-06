@@ -1,5 +1,5 @@
 import {api} from './requests'
-import { returnErrors } from './messages';
+import { returnErrors, parseError } from './messages';
 
 import {
 	USER_LOADED,
@@ -47,7 +47,7 @@ export const login = (username, password) =>  dispatch => {
 				payload: res.data
 			});
 		}).catch(err=> {
-			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch(parseError(err));
 			dispatch({
 				type: LOGIN_FAILED
 			});
