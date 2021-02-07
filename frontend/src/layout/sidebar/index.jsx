@@ -10,12 +10,15 @@ const Sidebar = (props) => {
 
   const [mainmenu, setMainMenu] = useState(MENUITEMS);
   const [margin, setMargin] = useState(0);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(window.innerWidth - 500);
   const [sidebartoogle, setSidebartoogle] = useState(true)
+  const [closeIcon, setCloseIcon] = useState(false)
   const wrapper = useSelector(content => content.Customizer.sidebar_types.type) || configDB.data.settings.sidebar.type;
 
   useEffect(() => {
-
+    if (width< 991) {
+      setCloseIcon(true)
+    }
     document.querySelector(".left-arrow").classList.add("d-none")
 
     window.addEventListener('resize', handleResize)
@@ -86,11 +89,9 @@ const Sidebar = (props) => {
   }
 
   const toggletNavActive = (item) => {
-    
     if(window.innerWidth <= 991){
       document.querySelector(".page-header").className = "page-header close_icon";
       document.querySelector(".sidebar-wrapper").className = "sidebar-wrapper close_icon "
-      document.querySelector(".mega-menu-container").classList.remove("d-block")
       if(item.type === "sub"){
         document.querySelector(".page-header").className = "page-header ";
         document.querySelector(".sidebar-wrapper").className = "sidebar-wrapper "
@@ -158,6 +159,7 @@ const Sidebar = (props) => {
       setSidebartoogle(!toggle);
       document.querySelector(".page-header").className = "page-header";
       document.querySelector(".sidebar-wrapper").className = "sidebar-wrapper "
+
     }
   };
 
@@ -168,9 +170,9 @@ const Sidebar = (props) => {
   
   return (
     <Fragment>
-      <div className="sidebar-wrapper">
+      <div className={`sidebar-wrapper ${closeIcon?'close_icon':''}`}>
         <div className="logo-wrapper">
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/default`}>
+          <Link to={`${process.env.PUBLIC_URL}/`}>
             <img className="img-fluid for-light" src={require("../../assets/images/logo/logo.png")} alt="" />
             <img className="img-fluid for-dark" src={require("../../assets/images/logo/logo_dark.png")} alt="" />
           </Link>
@@ -178,7 +180,8 @@ const Sidebar = (props) => {
           <div className="toggle-sidebar" onClick={() => openCloseSidebar(sidebartoogle)}><Grid className="status_toggle middle sidebar-toggle" /></div>
         </div>
         <div className="logo-icon-wrapper">
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/default`}><img className="img-fluid" src={require("../../assets/images/logo/logo-icon.png")} alt="" /></Link>
+          <Link to={`${process.env.PUBLIC_URL}/`}><img className="img-fluid for-light" src={require("../../assets/images/logo/logo-icon.png")} alt="" /></Link>
+          <Link to={`${process.env.PUBLIC_URL}/`}><img className="img-fluid for-dark" src={require("../../assets/images/logo/logo-icon-dark.png")} alt="" /></Link>
         </div>
         <nav className="sidebar-main">
             <div className="left-arrow" onClick={scrollToLeft}><ArrowLeft /></div>

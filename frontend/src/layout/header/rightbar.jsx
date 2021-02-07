@@ -33,13 +33,14 @@ setLanguageCookie();
 const Rightbar = (props) => {    
   const [searchresponsive, setSearchresponsive] = useState(false)
   const [langdropdown, setLangdropdown] = useState(false)
-  const [moonlight, setMoonlight] = useState(false)
+  const [moonlight, setMoonlight] = useState(localStorage.getItem('moonlight') || false)
   const [selected, setSelected] = useState("en")
   const [cartDropdown, setCartDropDown] = useState(false)
   const [notificationDropDown, setNotificationDropDown] = useState(false)
   const [chatDropDown, setChatDropDown] = useState(false)
 
   const [username, setUsername] = useState(null)
+  const [photoURL, setPhotoURL] = useState(null)
 
   const handleSetLanguage = (key) => {
     setLanguage(key);
@@ -47,10 +48,16 @@ const Rightbar = (props) => {
   };
 
   useEffect(() => {
-    if(localStorage.getItem("layout_version") === "dark-only"){
+    console.log(moonlight)
+    if(localStorage.getItem("moonlight")){
       setMoonlight(true)
+      document.body.className = "dark-only"
+    } else {document.body.className = "light"}
+    var user = getUserFromLocalStorage()
+    if (user) {
+      setUsername(user.username)
+      setPhotoURL(user.photo_url)
     }
-    setUsername(getUserFromLocalStorage().username)
   }, []);
 
   //full screen function
@@ -98,11 +105,11 @@ const Rightbar = (props) => {
     if (light) {
       setMoonlight(!light)
       document.body.className = "light"
-      localStorage.setItem('layout_version', 'light');
+      localStorage.removeItem('moonlight');
     } else {
       setMoonlight(!light)
       document.body.className = "dark-only"
-      localStorage.setItem('layout_version', 'dark-only');
+      localStorage.setItem('moonlight', 1);
     }
   }
 
@@ -269,7 +276,7 @@ const Rightbar = (props) => {
           <li className="maximize"><a className="text-dark" href="#javascript" onClick={goFull}><Minimize /></a></li>
           <li className="profile-nav onhover-dropdown p-0">
             <div className="media profile-media">
-              <img className="b-r-10" src={man} alt="" />
+              <img className="b-r-10" src={photoURL} alt="" />
               <div className="media-body"><span>{username}</span>
                 <p className="mb-0 font-roboto">{Admin} <i className="middle fa fa-angle-down"></i></p>
               </div>

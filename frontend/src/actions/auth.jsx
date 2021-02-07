@@ -49,7 +49,7 @@ export const login = (username, password) =>  dispatch => {
 			});
 		}).catch(err=> {
 			// dispatch(parseError(err));
-			toast.warn('Неверный логин или пароль')
+			toast.error('Неверный логин или пароль')
 			dispatch({
 				type: LOGIN_FAILED
 			});

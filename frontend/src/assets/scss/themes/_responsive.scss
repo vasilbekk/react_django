@@ -2953,6 +2953,8 @@
   }
 
   .profile-media {
+    padding-left: 6px;
+
     .media-body {
       display: none;
     }
@@ -4277,6 +4279,9 @@
     }
   }
 
+  .page-wrapper .nav-menus .profile-media {
+    padding-left: 6px;
+  }
   .page-wrapper .page-header .header-wrapper .nav-right>ul>li {
     padding: 4px;
   }
@@ -6037,9 +6042,9 @@
   .onhover-dropdown {
     &:hover {
       .onhover-show-div {
-        opacity: 0;
+        /* opacity: 0;
         transform: none;
-        visibility: hidden;
+        visibility: hidden; */
 
         &.active {
           opacity: 1;

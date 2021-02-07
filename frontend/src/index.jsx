@@ -19,9 +19,9 @@ import Login from './components/auth/Login'
 const Root = (props) =>  {
 
   const [anim, setAnim] = useState("");
-  const animation = localStorage.getItem("animation") || ConfigDB.data.router_animation || 'fade'
+  const animation = ConfigDB.data.router_animation
   const abortController = new AbortController();
-  const [user, setUser] = useState(store.getState().auth.user)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
       setAnim(animation)
@@ -42,6 +42,9 @@ const Root = (props) =>  {
         <BrowserRouter basename={`cabinet/`}>
         <Switch>
             <Route path='/login' component={Login} />
+
+            {user ?
+
             <App>
                 <TransitionGroup>
                   {routes.map(({ path, Component }) => (
@@ -49,6 +52,9 @@ const Root = (props) =>  {
                       ))}
                 </TransitionGroup>
             </App>
+            :
+            <Redirect to='/login' />
+            }
         </Switch>
         </BrowserRouter>
         </Provider>

@@ -17,6 +17,8 @@ const Header = (props) => {
   const [searchResult, setSearchResult] = useState(false);
   // eslint-disable-next-line
   const [searchResultEmpty, setSearchResultEmpty] = useState(false);
+  const [closeIcon, setCloseIcon] = useState(false)
+  const [width, setWidth] = useState(window.innerWidth - 500)
   const layout_type = useSelector(content => content.Customizer.layout)
   const layout_version = useSelector(content => content.Customizer.mix_background_layout)
   
@@ -27,6 +29,10 @@ const Header = (props) => {
   }, []);
 
   useEffect(() => {
+    if (width < 991){
+      setCloseIcon(true)
+    }
+
     document.addEventListener("keydown", escFunction, false);
     return () => {
         document.removeEventListener("keydown", escFunction, false);
@@ -91,7 +97,7 @@ const Header = (props) => {
 
   return (
       <Fragment>
-      <div className="page-header">
+      <div className={`page-header ${closeIcon?'close_icon':""}`}>
       <Row className="header-wrapper m-0">
       <Form className="form-inline search-full" action="#" method="get">
           <div className="form-group w-100">

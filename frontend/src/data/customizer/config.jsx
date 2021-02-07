@@ -15,7 +15,7 @@ export class ConfigDB {
 			secondary_color: '#f73164',
 			mix_background_layout: 'light-only',
 		},
-		router_animation: 'fadeIn'
+		router_animation: 'fade'
 	}
 }
 export default ConfigDB;
