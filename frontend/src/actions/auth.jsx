@@ -12,6 +12,7 @@ import {
 	REGISTER_FAILED	
 } from './types'
 
+import { toast } from 'react-toastify'
 
 export const loadUser = () => (dispatch, getState) => {
 	// User loading
@@ -47,7 +48,8 @@ export const login = (username, password) =>  dispatch => {
 				payload: res.data
 			});
 		}).catch(err=> {
-			dispatch(parseError(err));
+			// dispatch(parseError(err));
+			toast.warn('Неверный логин или пароль')
 			dispatch({
 				type: LOGIN_FAILED
 			});

@@ -8,7 +8,7 @@ import Loader from '../../layout/loader'
 import wave_img from '../../assets/images/login/login_wave.png'
 import auth_img from '../../assets/images/login/auth_picture.svg'
 import profile_img from '../../assets/images/login/profile_picture.svg'
-
+import {ToastContainer} from 'react-toastify'
 
 export class Login extends Component {
 	state = {
@@ -101,6 +101,7 @@ export class Login extends Component {
 							</form>
 						</div>
 					</div>
+				<ToastContainer />
 			</Fragment>
 		)
 	}

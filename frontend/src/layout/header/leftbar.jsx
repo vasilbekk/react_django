@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useLayoutEffect, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap'
-import { X, Layers, GitPullRequest, User, Users, UserMinus, UserCheck, Airplay, Zap,Heart,Inbox, Sliders } from 'react-feather'
+import { X, Layers, DollarSign, Plus, GitPullRequest, User, Users, UserMinus, UserCheck, Airplay, Zap,Heart,Inbox, Sliders } from 'react-feather'
 import { Link } from 'react-router-dom'
 import { errorPages, authPages, usefullPages, comingsoonPages } from './pages'
 import {BonusUi,MegaMenu,ErrorPage,Authentication,UsefullPages,ComingSoon, FileManager,SocialApp,UserEdit,UsersCards,UserProfile,KanbanBoard,Bookmark,LevelMenu} from '../../constant'
@@ -157,73 +157,10 @@ const Leftbar = (props) => {
       </div>  
       <Col className="left-header horizontal-wrapper pl-0">
         <ul className="horizontal-menu">
-          {/*<li className="mega-menu outside">
-            <a className={`nav-link ${bonusui ? 'active' : ''}`} href="#javascript" onClick={() => ToggleBonusUI(bonusui)}><Layers /><span>{BonusUi}</span></a>
-            <div className="mega-menu-container nav-submenu menu-to-be-close" style={bonusui ? { display: "" } : { display: "none" }}>
-                <Container fluid={true}>
-                  <Row>
-                    <Col className="mega-box" onClick={() => responsiveMegaBox1(megaboxtoggle1)}>
-                      <div className="mobile-title d-none">
-                        <h5>{MegaMenu}</h5><X onClick={() => responsiveMegaMenuclose()} />
-                      </div>
-                      <div className="link-section icon">
-                        <div className={`${megaboxtoggle1 ? "active" : ""}`}>
-                          <h6>{ErrorPage}</h6>
-                        </div>
-                        <ul className={`${megaboxtoggle1 ? "d-none" : ""}`}>
-                          {errorPages.map((pagesItem, i) =>
-                            <li key={i}>
-                              <Link to={pagesItem.path}>{pagesItem.title}</Link>
-                            </li>)}
-                        </ul>
-                      </div>
-                    </Col>
-                    <Col className="mega-box" onClick={() => responsiveMegaBox2(megaboxtoggle2)}>
-                      <div className="link-section doted">
-                        <div className={`${megaboxtoggle2 ? "active" : ""}`}>
-                          <h6>{Authentication}</h6>
-                        </div>
-                        <ul className={`${megaboxtoggle2 ? "d-none" : ""}`}>
-                          {authPages.map((pagesItem, i) =>
-                            <li key={i}><Link to={pagesItem.path}>{pagesItem.title}</Link></li>
-                          )}
-
-                        </ul>
-                      </div>
-                    </Col>
-                    <Col className="mega-box" onClick={() => responsiveMegaBox3(megaboxtoggle3)}>
-                      <div className="link-section dashed-links">
-                        <div className={`${megaboxtoggle3 ? "active" : ""}`}>
-                          <h6>{UsefullPages}</h6>
-                        </div>
-                        <ul className={`${megaboxtoggle3 ? "d-none" : ""}`}>
-                          {usefullPages.map((pagesItem, i) =>
-                            <li key={i}><Link to={pagesItem.path}>{pagesItem.title}</Link></li>
-                          )}
-                        </ul>
-                      </div>
-                    </Col>
-                    <Col className="mega-box" onClick={() => responsiveMegaBox4(megaboxtoggle4)}>
-                      <div className="link-section">
-                        <div className={`${megaboxtoggle4 ? "active" : ""}`}>
-                          <h6>{ComingSoon}</h6>
-                        </div>
-                        <ul className={`svg-icon ${megaboxtoggle4 ? "d-none" : ""}`}>
-                          {comingsoonPages.map((pagesItem, i) =>
-                            <li key={i}><Link to={pagesItem.path}><pagesItem.icon />{pagesItem.title}</Link></li>
-                          )}
-                        </ul>
-
-                      </div>
-                    </Col>
-                  </Row>
-                </Container>
-            </div>
-          </li>*/}
-          <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><Inbox/><span>{LevelMenu}</span></a>
+          <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><DollarSign /><span>Баланс</span></a>
             <ul className="header-level-menu menu-to-be-close" style={levelMenu ? { display: "" } : { display: "none" }}>
-              <li><GitPullRequest/><span>{FileManager}</span></li>
-              <li><a href="#javascript"><Users/><span>{"Users"}</span></a>
+              <li><a href='#'><Plus/><span>Пополнить</span></a></li>
+              {/*<li><a href="#javascript"><Users/><span>{"Users"}</span></a>
                 <ul className="header-level-sub-menu">
                   <li><User/><span>{UserProfile}</span></li>
                   <li><UserMinus/><span>{UserEdit}</span></li>
@@ -232,7 +169,7 @@ const Leftbar = (props) => {
               </li>
               <li><Airplay/><span>{KanbanBoard}</span></li>
               <li><Heart/><span>{Bookmark}</span></li>
-              <li><Zap/><span>{SocialApp}</span></li>
+              <li><Zap/><span>{SocialApp}</span></li>*/}
             </ul>
           </li>
         </ul>
