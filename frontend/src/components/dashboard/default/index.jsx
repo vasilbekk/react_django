@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import Breadcrumb from '../../../layout/breadcrumb'
 import {Container,Row,Col,Card,CardHeader,CardBody} from 'reactstrap';
+import {General, Default} from '../../../constant'
 
 
 const  Sample = (props) => {
     return (
          <Fragment>
-         <Breadcrumb parent="Основное" title="Главная"/>
+         <Breadcrumb parent={General} title={Default}/>
           <Container fluid={true}>
             <Row>
               <Col sm="12">

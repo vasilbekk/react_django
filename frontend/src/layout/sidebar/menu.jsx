@@ -1,8 +1,9 @@
 import {Home,Anchor,Headphones} from 'react-feather'
+import {General, MainFunctionality} from '../../constant'
 export const MENUITEMS = [
     {
-        menutitle:"General",
-        menucontent:"Dashboards,Widgets",
+        menutitle:General,
+        menucontent:MainFunctionality,
         Items:[
             {
                 title: 'Dashboard', icon: Home, type: 'sub', active: false, children: [

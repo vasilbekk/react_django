@@ -8,33 +8,29 @@ import {
   translate,
 } from 'react-switch-lang';
 
-import {English,Deutsch,Español,Français,Português,简体中文,Notification,DeliveryProcessing,OrderComplete,TicketsGenerated,DeliveryComplete,CheckAllNotification,Admin,Account,Inbox,Taskboard,LogOut} from '../../constant'
+import {English,Notification,DeliveryProcessing,OrderComplete,TicketsGenerated,DeliveryComplete,CheckAllNotification,Admin,Account,Inbox,Taskboard,LogOut} from '../../constant'
 
 import en from '../../assets/i18n/en.json';
-import es from '../../assets/i18n/es.json';
-import pt from '../../assets/i18n/pt.json';
-import fr from '../../assets/i18n/fr.json';
-import du from '../../assets/i18n/du.json';
-import cn from '../../assets/i18n/cn.json';
-import ae from '../../assets/i18n/ae.json';
+import ru from '../../assets/i18n/ru.js';
+
 // import { InputGroup, InputGroupAddon, Button } from 'reactstrap';
 
 import { getUserFromLocalStorage, logout } from '../../actions/auth'
 import store from '../../store'
 
 import { Link } from 'react-router-dom'
-
-setTranslations({ en, es, pt, fr, du, cn, ae });
+setTranslations({ en, ru });
 setDefaultLanguage('en');
 setLanguageCookie();
 
 const Rightbar = (props) => {    
-  // const [searchresponsive, setSearchresponsive] = useState(false)
   const [langdropdown, setLangdropdown] = useState(false)
   const [moonlight, setMoonlight] = useState(localStorage.getItem('moonlight') || false)
   const [selected, setSelected] = useState("en")
-  // const [cartDropdown, setCartDropDown] = useState(false)
   const [notificationDropDown, setNotificationDropDown] = useState(false)
+
+  // const [searchresponsive, setSearchresponsive] = useState(false)
+  // const [cartDropdown, setCartDropDown] = useState(false)
   // const [chatDropDown, setChatDropDown] = useState(false)
 
   const [username, setUsername] = useState(null)
@@ -43,6 +39,7 @@ const Rightbar = (props) => {
   const handleSetLanguage = (key) => {
     setLanguage(key);
     setSelected(key)
+    setLangdropdown(false)
   };
 
   useEffect(() => {
@@ -134,12 +131,7 @@ const Rightbar = (props) => {
               </div>
               <div className={`more_lang ${langdropdown ? 'active' : ''}`}>
                 <div className="lang" onClick={() => handleSetLanguage('en')}><i className="flag-icon flag-icon-us"></i><span className="lang-txt">{English}<span> {"(US)"}</span></span></div>
-                <div className="lang" onClick={() => handleSetLanguage('du')}><i className="flag-icon flag-icon-de"></i><span className="lang-txt">{Deutsch}</span></div>
-                <div className="lang" onClick={() => handleSetLanguage('es')}><i className="flag-icon flag-icon-es"></i><span className="lang-txt">{Español}</span></div>
-                <div className="lang" onClick={() => handleSetLanguage('fr')}><i className="flag-icon flag-icon-fr"></i><span className="lang-txt">{Français}</span></div>
-                <div className="lang" onClick={() => handleSetLanguage('pt')}><i className="flag-icon flag-icon-pt"></i><span className="lang-txt">{Português}<span> {"(BR)"}</span></span></div>
-                <div className="lang" onClick={() => handleSetLanguage('cn')}><i className="flag-icon flag-icon-cn"></i><span className="lang-txt">{简体中文}</span></div>
-                <div className="lang" onClick={() => handleSetLanguage('ae')}><i className="flag-icon flag-icon-ae"></i><span className="lang-txt">{"لعربية"}<span> {"(ae)"}</span></span></div>
+                <div className="lang" onClick={() => handleSetLanguage('ru')}><i className="flag-icon flag-icon-ru"></i><span className="lang-txt">Русский<span> {"(RU)"}</span></span></div>
               </div>
             </div>
           </li>
@@ -281,10 +273,10 @@ const Rightbar = (props) => {
               </div>
             </div>
             <ul className="profile-dropdown onhover-show-div">
-              <li><Link to='/'><User /><span>{Account} </span></Link></li>
+              <li><Link to='/'><User /><span>{props.t(Account)} </span></Link></li>
               <li><Link to='/'><Mail /><span>{Inbox}</span></Link></li>
               <li><Link to='/'><FileText /><span>{Taskboard}</span></Link></li>
-              <li><Link to='/'><LogIn /><span onClick={(e) => handleLogout(e)}>{LogOut}</span></Link></li>
+              <li><Link to='/'><LogIn /><span onClick={(e) => handleLogout(e)}>{props.t(LogOut)}</span></Link></li>
             </ul>
           </li>
         </ul>

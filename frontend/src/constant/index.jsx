@@ -6,6 +6,7 @@ export const Appointment =  "Appointment"
 export const Notification =  "notification"
 export const MarketValue =  "Market Value"
 export const Chat =  "Chat"
+export const MainFunctionality = "Main functionality"
 
 export const NewProduct =  "New Product"
 export const Location =  "Location"
