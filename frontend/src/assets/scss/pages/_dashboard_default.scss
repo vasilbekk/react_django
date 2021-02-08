@@ -117,6 +117,10 @@ $badge-light-color in (primary, $primary-color),
 
     .profile-vector {
       filter: drop-shadow(15px 17px 12px rgba($black, 0.1));
+
+      & > image {
+        border-radius: 50%;
+      }
     }
 
     .right-circle {

@@ -1,4 +1,4 @@
-import {LogOut, Account, General, Dashboard, MainFunctionality, Default, Support, RaiseSupport} from  '../../constant'
+import {LogOut, Account, General, Dashboard, MainFunctionality, Default, Support, RaiseSupport, Inbox} from  '../../constant'
 
 
 const translations = {
@@ -10,8 +10,8 @@ const translations = {
 	[Default]: 'Обычная',
 	"Ecommerce": 'Продажи',
 	[Support]: "Помощь",
-	[RaiseSupport]: "Тех. Поддержка"
-
+	[RaiseSupport]: "Тех. Поддержка",
+	[Inbox]: "Почта"
 }
 
 

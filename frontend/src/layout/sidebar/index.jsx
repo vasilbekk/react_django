@@ -199,82 +199,82 @@ const Sidebar = (props) => {
                           <p className="lan-2">{props.t(Item.menucontent)}</p>
                         </div>
                       </li>
-                      {Item.Items.map((menuItem, i) =>
-                        <li className="sidebar-list" key={i}>
-                          {(menuItem.type === 'sub') ?
-                            <a className={`sidebar-link sidebar-title  ${menuItem.active ? 'active' : ''}`} href="#javascript" onClick={() => setNavActive(menuItem)}>
-                              <menuItem.icon />
-                              <span>{props.t(menuItem.title)}</span>
-                              {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ""}
-                              <div className="according-menu">
-                                {menuItem.active ?
-                                  <i className="fa fa-angle-down"></i>
-                                  : <i className="fa fa-angle-right"></i>
-                                }
-                              </div>
-                            </a>
-                            : ''}
+                        {Item.Items.map((menuItem, i) =>
+                          <li className="sidebar-list" key={i}>
+                            {(menuItem.type === 'sub') ?
+                              <a className={`sidebar-link sidebar-title  ${menuItem.active ? 'active' : ''}`} href="#javascript" onClick={() => setNavActive(menuItem)}>
+                                <menuItem.icon />
+                                <span>{props.t(menuItem.title)}</span>
+                                {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ""}
+                                <div className="according-menu">
+                                  {menuItem.active ?
+                                    <i className="fa fa-angle-down"></i>
+                                    : <i className="fa fa-angle-right"></i>
+                                  }
+                                </div>
+                              </a>
+                              : ''}
 
-                          {(menuItem.type === 'link') ?
-                            <Link  to={menuItem.path} className={`sidebar-link sidebar-title link-nav  ${menuItem.active ? 'active' : ''}`} href="#javascript" onClick={() => toggletNavActive(menuItem)}>
-                              <menuItem.icon />
-                              <span>{props.t(menuItem.title)}</span>
-                              {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ""}
-                            </Link>
-                            : ''}
+                            {(menuItem.type === 'link') ?
+                              <Link  to={menuItem.path} className={`sidebar-link sidebar-title link-nav  ${menuItem.active ? 'active' : ''}`} href="#javascript" onClick={() => toggletNavActive(menuItem)}>
+                                <menuItem.icon />
+                                <span>{props.t(menuItem.title)}</span>
+                                {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ""}
+                              </Link>
+                              : ''}
 
-                          {menuItem.children ?
+                            {menuItem.children ?
 
-                            <ul className="sidebar-submenu"
-                              style={menuItem.active ? sidebartoogle ? { opacity: 1, transition: 'opacity 500ms ease-in' } : { display: "block" } : { display: "none" }}>
+                              <ul className="sidebar-submenu"
+                                style={menuItem.active ? sidebartoogle ? { opacity: 1, transition: 'opacity 500ms ease-in' } : { display: "block" } : { display: "none" }}>
 
-                              {menuItem.children.map((childrenItem, index) => {
+                                {menuItem.children.map((childrenItem, index) => {
 
-                                return (
-                                  <li key={index}>
+                                  return (
+                                    <li key={index}>
 
-                                    {(childrenItem.type === 'sub') ?
-                                      <a className={`${childrenItem.active ? 'active' : ''}`} href="#javascript" onClick={() => toggletNavActive(childrenItem)}>{props.t(childrenItem.title)}
-                                        <span className="sub-arrow">
-                                          <i className="fa fa-chevron-right"></i>
-                                        </span>
-                                        <div className="according-menu">
-                                          {childrenItem.active ?
-                                            <i className="fa fa-angle-down"></i>
-                                            : <i className="fa fa-angle-right"></i>
-                                          }
-                                        </div>
-                                      </a>
+                                      {(childrenItem.type === 'sub') ?
+                                        <a className={`${childrenItem.active ? 'active' : ''}`} href="#javascript" onClick={() => toggletNavActive(childrenItem)}>{props.t(childrenItem.title)}
+                                          <span className="sub-arrow">
+                                            <i className="fa fa-chevron-right"></i>
+                                          </span>
+                                          <div className="according-menu">
+                                            {childrenItem.active ?
+                                              <i className="fa fa-angle-down"></i>
+                                              : <i className="fa fa-angle-right"></i>
+                                            }
+                                          </div>
+                                        </a>
+                                        : ''}
+
+                                      {(childrenItem.type === 'link') ?
+                                        <Link  to={childrenItem.path} className={`${childrenItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenItem)}>{props.t(childrenItem.title)}</Link>
+                                        : ''}
+
+                                      {(childrenItem.type === 'exteral_link') ?
+                                      <a  href={childrenItem.path}  >{props.t(childrenItem.title)}</a>
                                       : ''}
 
-                                    {(childrenItem.type === 'link') ?
-                                      <Link  to={childrenItem.path} className={`${childrenItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenItem)}>{props.t(childrenItem.title)}</Link>
-                                      : ''}
+                                      {childrenItem.children ?
+                                        <ul className="nav-sub-childmenu submenu-content"
+                                          style={childrenItem.active ? { display: "block" } : { display: "none" }}
+                                        >
+                                          {childrenItem.children.map((childrenSubItem, key) =>
+                                            <li key={key}>
+                                              {(childrenSubItem.type === 'link') ?
+                                                <Link to={childrenSubItem.path} className={`${childrenSubItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenSubItem)}>{props.t(childrenSubItem.title)}</Link>
+                                                : ''}
+                                            </li>
+                                          )}
+                                        </ul>
+                                        : ""}
 
-                                    {(childrenItem.type === 'exteral_link') ?
-                                    <a  href={childrenItem.path}  >{props.t(childrenItem.title)}</a>
-                                    : ''}
-
-                                    {childrenItem.children ?
-                                      <ul className="nav-sub-childmenu submenu-content"
-                                        style={childrenItem.active ? { display: "block" } : { display: "none" }}
-                                      >
-                                        {childrenItem.children.map((childrenSubItem, key) =>
-                                          <li key={key}>
-                                            {(childrenSubItem.type === 'link') ?
-                                              <Link to={childrenSubItem.path} className={`${childrenSubItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenSubItem)}>{props.t(childrenSubItem.title)}</Link>
-                                              : ''}
-                                          </li>
-                                        )}
-                                      </ul>
-                                      : ""}
-
-                                  </li>
-                                )
-                              })}
-                            </ul>
-                            : ''}
-                        </li>)}
+                                    </li>
+                                  )
+                                })}
+                              </ul>
+                              : ''}
+                          </li>)}
                     </Fragment>
                   )}
               </ul>

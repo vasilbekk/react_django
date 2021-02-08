@@ -1,4 +1,4 @@
-import {Home,Anchor,Headphones} from 'react-feather'
+import {Home,Headphones} from 'react-feather'
 import {General, MainFunctionality} from '../../constant'
 export const MENUITEMS = [
     {
@@ -6,26 +6,12 @@ export const MENUITEMS = [
         menucontent:MainFunctionality,
         Items:[
             {
-                title: 'Dashboard', icon: Home, type: 'sub', active: false, children: [
-                    { path: `${process.env.PUBLIC_URL}/`, title: 'Default', type: 'link' },
-                    { path: `${process.env.PUBLIC_URL}/dashboard/ecommerce`, title: 'Ecommerce', type: 'link' },
-                ]
+                title: 'Dashboard', icon: Home, type: 'link', active: false, path: `${process.env.PUBLIC_URL}/`
             }
         ]
        
     },
-    {
-        menutitle:"Starter",
-        menucontent:"Ready to use Apps",
-        Items:[
-            {
-                title: 'Starter kit', icon: Anchor , type: 'sub', active: false, children: [
-                    { path: `${process.env.PUBLIC_URL}/starter-kits/sample-page`, title: 'Sample Page', type: 'link' },
-                ]
-            }
-        ]
-    },
-    {
+    /*{
         menutitle:"Support",
         menucontent:"",
         Items:[
@@ -35,7 +21,7 @@ export const MENUITEMS = [
                 ]
             }
         ]          
-    },
+    },*/
     
             
 ]

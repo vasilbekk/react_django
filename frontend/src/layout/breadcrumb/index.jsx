@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 import {translate} from 'react-switch-lang'
 
 const Breadcrumbs = (props) => {
-  console.log(props.title)
-  console.log(props.t(props.title))
   return (
     <Fragment>
       <Container fluid={true}>
@@ -17,7 +15,7 @@ const Breadcrumbs = (props) => {
             </Col>
             <Col xs="6">
               <Breadcrumb>
-                <BreadcrumbItem><Link to={`${process.env.PUBLIC_URL}/dashboard/default`}><Home /></Link></BreadcrumbItem>
+                <BreadcrumbItem><Link to={`${process.env.PUBLIC_URL}/`}><Home /></Link></BreadcrumbItem>
                 <BreadcrumbItem>{props.t(props.parent)}</BreadcrumbItem>
                 <BreadcrumbItem active>{props.t(props.title)}</BreadcrumbItem>
               </Breadcrumb>

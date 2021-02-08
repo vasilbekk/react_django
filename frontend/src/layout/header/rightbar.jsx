@@ -110,9 +110,7 @@ const Rightbar = (props) => {
   }
 
   const handleLogout = (e) => {
-    console.log('handleLogout()')
     store.dispatch(logout())
-    console.log('end handleLogout()')
   }
 
 
@@ -274,7 +272,7 @@ const Rightbar = (props) => {
             </div>
             <ul className="profile-dropdown onhover-show-div">
               <li><Link to='/'><User /><span>{props.t(Account)} </span></Link></li>
-              <li><Link to='/'><Mail /><span>{Inbox}</span></Link></li>
+              <li><Link to='/'><Mail /><span>{props.t(Inbox)}</span></Link></li>
               <li><Link to='/'><FileText /><span>{Taskboard}</span></Link></li>
               <li><Link to='/'><LogIn /><span onClick={(e) => handleLogout(e)}>{props.t(LogOut)}</span></Link></li>
             </ul>
