@@ -1316,6 +1316,7 @@ export const  MDEEditorExample = "MDE Editor Example"
 export const  Articles = "Articles"
 export const  Knowledgebase = "Knowledgebase"
 export const  Support = "Support"
+export const  RaiseSupport = 'Raise Support'
 export const  IntellectualProperty = "Intellectual Property"
 export const  SellingAndBuying = "Selling And Buying"
 export const  UserAccounts = "User Accounts"
