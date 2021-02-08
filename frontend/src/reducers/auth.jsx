@@ -7,13 +7,13 @@ import {
 	LOGOUT_SUCCESS
 } from '../actions/types'
 
-
+import { getUserFromLocalStorage, authUserByAction, logoutUserByAction } from '../actions/auth'
 
 const initialState = {
 	token: localStorage.getItem('token'),
-	isAuthenticated: false, 
+	isAuthenticated: localStorage.getItem('isAuthenticated'), 
 	isLoading: false,
-	user: JSON.parse(localStorage.getItem('user'))
+	user: getUserFromLocalStorage()
 }
 
 export default function(state=initialState, action) {
@@ -25,9 +25,7 @@ export default function(state=initialState, action) {
 			}
 		case USER_LOADED:
 		case LOGIN_SUCCESS:
-			if (action.payload.token) {localStorage.setItem('token', action.payload.token)}
-			if (action.payload.user) {localStorage.setItem('user', JSON.stringify(action.payload.user))}
-				else if (action.payload) {localStorage.setItem('user', JSON.stringify(action.payload))}
+			authUserByAction(action)
 			return {
 				...state,
 				isAuthenticated: true,
@@ -38,8 +36,7 @@ export default function(state=initialState, action) {
 		case AUTH_ERROR:
 		case LOGIN_FAILED:
 		case LOGOUT_SUCCESS:
-			localStorage.removeItem('token')
-			localStorage.removeItem('isAuthenticated')
+			logoutUserByAction(action)
 			return {
 				...state,
 				token: null,

@@ -26,10 +26,11 @@ const Leftbar = (props) => {
 
 
   useEffect(() => {
-
     var ignoreClick_On_Out_side_Element = document.getElementById('out_side_click');
     var ignoreClick_On_Main_Nav_Element = document.getElementById('sidebar-menu');
-    document.addEventListener('click', function(event) {
+
+    const listener = function(event) {
+        
         var isClickOutSideElement = ignoreClick_On_Out_side_Element.contains(event.target);
         var isClickMainNavElement = ignoreClick_On_Main_Nav_Element.contains(event.target);
         if (window.innerWidth <= 991 && !isClickOutSideElement && !isClickMainNavElement) {
@@ -37,9 +38,14 @@ const Leftbar = (props) => {
             document.querySelector(".page-header").className = "page-header close_icon";
             document.querySelector(".sidebar-wrapper").className = "sidebar-wrapper close_icon "
         }
-    });
-
+    }
+    // Event listener hide menu if click outside this
+    document.addEventListener('click', listener);
+    // On other pages dont deen click listener to close sidebar (example: login dont have sidebar)
+    return () => document.removeEventListener('click', listener)
   }, [width])
+
+  
 
 
   const responsive_openCloseSidebar = (toggle) => {

@@ -102,6 +102,23 @@ export const getUserFromLocalStorage = () => {
 	return JSON.parse(localStorage.getItem('user'))
 }
 
+export const authUserByAction = (action) => {
+	if (action.payload.token) 
+		localStorage.setItem('token', action.payload.token)
+	if (action.payload.user) 
+		localStorage.setItem('user', JSON.stringify(action.payload.user))
+		else if (action.payload) 
+			localStorage.setItem('user', JSON.stringify(action.payload))
+
+	localStorage.setItem('isAuthenticated', 1)
+}
+
+export const logoutUserByAction = (action) => {
+	localStorage.removeItem('token')
+	localStorage.removeItem('isAuthenticated')
+	localStorage.removeItem('user')
+}
+
 // Setup config with token
 export const tokenConfig = getState => {
 	// Get token

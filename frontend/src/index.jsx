@@ -42,9 +42,7 @@ const Root = (props) =>  {
         <BrowserRouter basename={`cabinet/`}>
         <Switch>
             <Route path='/login' component={Login} />
-
-            {user ?
-
+            
             <App>
                 <TransitionGroup>
                   {routes.map(({ path, Component }) => (
@@ -52,9 +50,6 @@ const Root = (props) =>  {
                       ))}
                 </TransitionGroup>
             </App>
-            :
-            <Redirect to='/login' />
-            }
         </Switch>
         </BrowserRouter>
         </Provider>
