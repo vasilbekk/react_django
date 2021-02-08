@@ -1,7 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import man from '../../assets/images/dashboard/profile.jpg'
-import { FileText, LogIn, Mail, User, MessageSquare, Bell, Minimize, Search, ShoppingCart, Minus, Plus, X } from 'react-feather';
-import Bookmark from "../../layout/bookmark"
+import { FileText, LogIn, Mail, User, Bell, Minimize} from 'react-feather';
 import {
   setTranslations,
   setDefaultLanguage,
@@ -10,7 +8,7 @@ import {
   translate,
 } from 'react-switch-lang';
 
-import {English,Deutsch,Español,Français,Português,简体中文,Notification,DeliveryProcessing,OrderComplete,TicketsGenerated,DeliveryComplete,CheckAllNotification,ViewAll,MessageBox,EricaHughes,KoriThomas,Admin,Account,Inbox,Taskboard,LogOut,AinChavez,CheckOut,ShopingBag,OrderTotal,GoToShopingBag} from '../../constant'
+import {English,Deutsch,Español,Français,Português,简体中文,Notification,DeliveryProcessing,OrderComplete,TicketsGenerated,DeliveryComplete,CheckAllNotification,Admin,Account,Inbox,Taskboard,LogOut} from '../../constant'
 
 import en from '../../assets/i18n/en.json';
 import es from '../../assets/i18n/es.json';
@@ -19,7 +17,7 @@ import fr from '../../assets/i18n/fr.json';
 import du from '../../assets/i18n/du.json';
 import cn from '../../assets/i18n/cn.json';
 import ae from '../../assets/i18n/ae.json';
-import { InputGroup, InputGroupAddon, Button } from 'reactstrap';
+// import { InputGroup, InputGroupAddon, Button } from 'reactstrap';
 
 import { getUserFromLocalStorage, logout } from '../../actions/auth'
 import store from '../../store'
@@ -31,13 +29,13 @@ setDefaultLanguage('en');
 setLanguageCookie();
 
 const Rightbar = (props) => {    
-  const [searchresponsive, setSearchresponsive] = useState(false)
+  // const [searchresponsive, setSearchresponsive] = useState(false)
   const [langdropdown, setLangdropdown] = useState(false)
   const [moonlight, setMoonlight] = useState(localStorage.getItem('moonlight') || false)
   const [selected, setSelected] = useState("en")
-  const [cartDropdown, setCartDropDown] = useState(false)
+  // const [cartDropdown, setCartDropDown] = useState(false)
   const [notificationDropDown, setNotificationDropDown] = useState(false)
-  const [chatDropDown, setChatDropDown] = useState(false)
+  // const [chatDropDown, setChatDropDown] = useState(false)
 
   const [username, setUsername] = useState(null)
   const [photoURL, setPhotoURL] = useState(null)
@@ -58,6 +56,7 @@ const Rightbar = (props) => {
       setUsername(user.username)
       setPhotoURL(user.photo_url)
     }
+    // eslint-disable-next-line
   }, []);
 
   //full screen function
@@ -82,7 +81,7 @@ const Rightbar = (props) => {
     }
   }
 
-  const SeacrhResposive = (searchresponsive) => {
+  /*const SeacrhResposive = (searchresponsive) => {
     if (searchresponsive) {
       setSearchresponsive(!searchresponsive)
       document.querySelector(".search-full").classList.add("open");
@@ -91,7 +90,7 @@ const Rightbar = (props) => {
       setSearchresponsive(!searchresponsive)
       document.querySelector(".search-full").classList.remove("open");
     }
-  }
+  }*/
 
   const LanguageSelection = (language) => {
     if (language) {

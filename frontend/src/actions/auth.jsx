@@ -1,5 +1,5 @@
 import {api} from './requests'
-import { returnErrors, parseError } from './messages';
+import { returnErrors } from './messages';
 
 import {
 	USER_LOADED,
@@ -72,13 +72,6 @@ export const logout = () => (dispatch, getState) => {
 
 // Register user
 export const register = ({ username, password, email }) =>  dispatch => {
-
-	// Headers
-	const config = {
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	}
 
 	// Request Body
 	const body = JSON.stringify({username, email, password})

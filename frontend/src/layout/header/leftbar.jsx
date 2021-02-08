@@ -1,12 +1,9 @@
 import React, { Fragment, useState, useLayoutEffect, useEffect } from 'react';
-import { Container, Row, Col } from 'reactstrap'
-import { X, Layers, DollarSign, Plus, GitPullRequest, User, Users, UserMinus, UserCheck, Airplay, Zap,Heart,Inbox, AlignCenter } from 'react-feather'
+import { Col } from 'reactstrap'
+import { DollarSign, Plus, AlignCenter } from 'react-feather'
 import { Link } from 'react-router-dom'
-import { errorPages, authPages, usefullPages, comingsoonPages } from './pages'
-import {BonusUi,MegaMenu,ErrorPage,Authentication,UsefullPages,ComingSoon, FileManager,SocialApp,UserEdit,UsersCards,UserProfile,KanbanBoard,Bookmark,LevelMenu} from '../../constant'
 const Leftbar = (props) => {
 
-  const [bonusui, setBonusUI] = useState(false)
   const [levelMenu, setLevelMenu] = useState(false)
   const [sidebartoggle, setSidebartoggle] = useState(false)
   const width = useWindowSize()
@@ -90,6 +87,7 @@ const Leftbar = (props) => {
         <ul className="horizontal-menu">
           <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><DollarSign /><span>Баланс</span></a>
             <ul className="header-level-menu menu-to-be-close" style={levelMenu ? { display: "" } : { display: "none" }}>
+          {/*eslint-disable-next-line*/}
               <li><a href='#'><Plus/><span>Пополнить</span></a></li>
               {/*<li><a href="#javascript"><Users/><span>{"Users"}</span></a>
                 <ul className="header-level-sub-menu">

@@ -5,9 +5,9 @@ import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store'
-import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom'
+import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import PrivateRoute from './common/PrivateRoute'
-import { CSSTransition,TransitionGroup } from 'react-transition-group'
+import {TransitionGroup } from 'react-transition-group'
 import {routes} from './route';
 import ConfigDB from './data/customizer/config'
 
@@ -21,7 +21,7 @@ const Root = (props) =>  {
   const [anim, setAnim] = useState("");
   const animation = ConfigDB.data.router_animation
   const abortController = new AbortController();
-  const [user, setUser] = useState(null)
+  
 
   useEffect(() => {
       setAnim(animation)
@@ -29,7 +29,6 @@ const Root = (props) =>  {
       console.disableYellowBox = true;
       // User auth
       store.dispatch(loadUser())
-      setUser(store.getState().auth.user)
       return function cleanup() {
           abortController.abort();
         }

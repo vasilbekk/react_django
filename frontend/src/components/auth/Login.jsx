@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth'
@@ -51,14 +51,14 @@ export class Login extends Component {
 		return (
 			<Fragment>
 			<Loader />
-				<img className='login__wave' src={wave_img} />
+				<img className='login__wave' src={wave_img} alt='wave'/>
 					<div className="login__container">
 						<div className='login__img'>
-							<img src={auth_img} />
+							<img src={auth_img} alt='auth icon' />
 						</div>
 						<div className='login__login-content'>
 							<form onSubmit={this.onSubmit}>
-								<img className='login__avatar' src={profile_img} />
+								<img className='login__avatar' src={profile_img} alt='login avatar'/>
 								
 								<h2>кабинет</h2>
 								<div className={`login__input-div ${this.state.username_focus?'focus':''}`}>

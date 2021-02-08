@@ -18,7 +18,6 @@ const Header = (props) => {
   // eslint-disable-next-line
   const [searchResultEmpty, setSearchResultEmpty] = useState(false);
   const [closeIcon, setCloseIcon] = useState(false)
-  const [width, setWidth] = useState(window.innerWidth - 500)
   const layout_type = useSelector(content => content.Customizer.layout)
   const layout_version = useSelector(content => content.Customizer.mix_background_layout)
   
@@ -29,7 +28,7 @@ const Header = (props) => {
   }, []);
 
   useEffect(() => {
-    if (width < 991){
+    if (window.innerWidth-500 < 991){
       setCloseIcon(true)
     }
 
