@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Breadcrumb from '../../layout/breadcrumb'
-import {Container,Row,Col,Card,CardHeader,CardBody} from 'reactstrap';
+import {Container,Row,Col,Card,CardHeader,CardBody, Form, FormGroup, Input, InputGroup, Label, Button} from 'reactstrap';
 import { getUserFromLocalStorage } from '../../actions/auth'
-import DatePicker from "react-datepicker";
+
 import { Clock } from 'react-feather'
 import ApexCharts from 'react-apexcharts'
 import Knob from 'knob'
@@ -19,7 +19,7 @@ const  Sample = (props) => {
   const curMi = today.getMinutes()
   const [daytimes,setDayTimes] = useState()
   const [meridiem,setMeridiem] = useState("AM")
-  const [date, setDate] = useState({ date: new Date()});
+  const [date, setDate] = useState(new Date());
   const user = getUserFromLocalStorage()
 
 
@@ -165,19 +165,33 @@ const  Sample = (props) => {
                   </CardBody>
                 </Card>
               </Col>
-              <Col xl="4 xl-50" lg="12" className="calendar-sec box-col-6">
-            <Card className="gradient-primary o-hidden">
-              <CardBody>
-                <div className="default-datepicker">
-                  <DatePicker
-                    selected={date}
-                    onChange={handleChange}
-                    inline
-                  />
-                </div><span className="default-dots-stay overview-dots full-width-dots"><span className="dots-group"><span className="dots dots1"></span><span className="dots dots2 dot-small"></span><span className="dots dots3 dot-small"></span><span className="dots dots4 dot-medium"></span><span className="dots dots5 dot-small"></span><span className="dots dots6 dot-small"></span><span className="dots dots7 dot-small-semi"></span><span className="dots dots8 dot-small-semi"></span><span className="dots dots9 dot-small">                </span></span></span>
-              </CardBody>
-            </Card>
-          </Col>
+            <Col Col xl="4 xl-50" lg="12" className="calendar-sec box-col-6">
+              <Card className="height-equal">
+                <CardHeader>
+                  <h5>ContactUs</h5>
+                </CardHeader>
+                <CardBody className="contact-form">
+                  <Form className="theme-form">
+                    <div className="form-icon"><i className="icofont icofont-envelope-open"></i></div>
+                    <FormGroup>
+                      <Label for="exampleInputName">YourName</Label>
+                      <Input className="form-control" id="exampleInputName" type="text" placeholder="John Dio" />
+                    </FormGroup>
+                    <FormGroup >
+                      <Label className="col-form-label" htmlFor="exampleInputEmail1">Email</Label>
+                      <Input className="form-control" id="exampleInputEmail1" type="email" placeholder="Demo@gmail.com" />
+                    </FormGroup>
+                    <FormGroup >
+                      <Label className="col-form-label" htmlFor="exampleInputEmail1">Message</Label>
+                      <textarea className="form-control textarea" rows="3" cols="50" placeholder="Your Message"></textarea>
+                    </FormGroup>
+                    <div className="text-sm-right">
+                      <Button className="btn btn-primary-gradien">Send</Button>
+                    </div>
+                  </Form>
+                </CardBody>
+              </Card>
+            </Col>
             </Row>
           </Container>   
          </Fragment> 
