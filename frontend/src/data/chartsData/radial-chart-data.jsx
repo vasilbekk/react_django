@@ -1,4 +1,4 @@
-import configDB from '../customizer/config'
+ import configDB from '../customizer/config'
 import { getUserFromLocalStorage } from '../../actions/auth'
 
 
@@ -6,11 +6,9 @@ import sadFace from '../../assets/images/other-images/sad_clean.png'
 import smileFace from '../../assets/images/other-images/smile_clean.png'
 
 
-const primary = localStorage.getItem('default_color') || configDB.data.color.primary_color;
-const secondary = localStorage.getItem('secondary_color') || configDB.data.color.secondary_color;
 const user = getUserFromLocalStorage()
-const balance = user.balance
-const perDay = user.payPerDay
+const balance = user?user.balance:0
+const perDay = user?user.payPerDay:0
 
 const daysToBlock = () => balance/perDay
 const getImageSmileOrSad = () => (daysToBlock()<=7)?sadFace:smileFace
@@ -29,8 +27,8 @@ export const radialChart = {
             margin: 15,
             size: '70%',
             image: getImageSmileOrSad(),
-            imageWidth: 112,
-            imageHeight: 112,
+            imageWidth: 86,
+            imageHeight: 86,
             imageClipped: false
           },
           dataLabels: {

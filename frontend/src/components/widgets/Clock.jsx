@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import Clock from 'react-clock';
 import {Col, Card} from 'reactstrap'
 
 import { kolkata_India } from '../../constant'
-
+import 'react-clock/dist/Clock.css'
 // Dont work
 
 const ClockWidget = () => {
@@ -15,10 +15,11 @@ const ClockWidget = () => {
 		var interval = setInterval(() => setDate(new Date()), 1000)
 
 		return () => clearInterval(interval)
-	})
+	}, [])
 
 	return (
-		<Col xl="3" sm="6" className="xl-50 box-col-6">
+  <Fragment>
+		<Col xl="4 xl-100" lg="12" className="calendar-sec box-col-6">
             <Card>
               <div className="mobile-clock-widget">
                 <div className="bg-svg">
@@ -46,9 +47,8 @@ const ClockWidget = () => {
                 </div>
                 <div>
                   <Clock
-                    className={'clock'}
-                    value={date}
-                  />
+                    className={'clock'} 
+                    value={date} />
                   <div id="date" className="date f-24 mb-2">
                     <span>{dateshow}</span>
                   </div>
@@ -59,6 +59,7 @@ const ClockWidget = () => {
               </div>
             </Card>
           </Col>
+        </Fragment>
 		)
 }
 
