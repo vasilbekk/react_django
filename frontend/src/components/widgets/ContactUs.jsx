@@ -1,30 +1,33 @@
 import React from 'react'
 import {Card, CardHeader, CardBody, Form, FormGroup, Label, Input, Button} from 'reactstrap'
+import {translate} from 'react-switch-lang'
+
+import { ContactUs as ContactUsText, YourName, Email, Message, Send} from '../../constant'
  
 const ContactUs = props => {
 
 	return (
 		<Card className="height-equal">
 		  <CardHeader>
-		    <h5>ContactUs</h5>
+		    <h5>{props.t(ContactUsText)}</h5>
 		  </CardHeader>
 		  <CardBody className="contact-form">
 		    <Form className="theme-form">
 		      <div className="form-icon"><i className="icofont icofont-envelope-open"></i></div>
 		      <FormGroup>
-		        <Label for="exampleInputName">YourName</Label>
+		        <Label for="exampleInputName">{props.t(YourName)}</Label>
 		        <Input className="form-control" id="exampleInputName" type="text" placeholder="John Dio" />
 		      </FormGroup>
 		      <FormGroup >
-		        <Label className="col-form-label" htmlFor="exampleInputEmail1">Email</Label>
+		        <Label className="col-form-label" htmlFor="exampleInputEmail1">{props.t(Email)}</Label>
 		        <Input className="form-control" id="exampleInputEmail1" type="email" placeholder="Demo@gmail.com" />
 		      </FormGroup>
 		      <FormGroup >
-		        <Label className="col-form-label" htmlFor="exampleInputEmail1">Message</Label>
+		        <Label className="col-form-label" htmlFor="exampleInputEmail1">{props.t(Message)}</Label>
 		        <textarea className="form-control textarea" rows="3" cols="50" placeholder="Your Message"></textarea>
 		      </FormGroup>
 		      <div className="text-sm-right">
-		        <Button className="btn btn-primary-gradien">Send</Button>
+		        <Button className="btn btn-primary-gradien">{props.t(Send)}</Button>
 		      </div>
 		    </Form>
 		  </CardBody>
@@ -32,4 +35,4 @@ const ContactUs = props => {
 		)
 }
 
-export default ContactUs;
+export default translate(ContactUs);
