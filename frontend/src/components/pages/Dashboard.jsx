@@ -38,35 +38,6 @@ const  Sample = (props) => {
       setMeridiem('AM')
     }
 
-    
-    /*var ordervalue1 = Knob({
-      value: 60,
-      angleOffset: 0,
-      thickness: 0.3,
-      width: 65,
-      fgColor: "#7366ff",
-      readOnly: false,
-      dynamicDraw: true,
-      tickColorizeValues: true,
-      bgColor: '#eef5fb',
-      lineCap: 'round',
-      displayPrevious: false
-    })
-    // document.getElementById('ordervalue1').appendChild(ordervalue1);
-
-    var ordervalue2 = Knob({
-      value: 60,
-      angleOffset: 0,
-      thickness: 0.3,
-      fgColor: "#7366ff",
-      readOnly: false,
-      width: 65,
-      dynamicDraw: true,
-      lineCap: 'round',
-      displayPrevious: false
-    })
-    // document.getElementById('ordervalue2').appendChild(ordervalue2);*/
-
     // eslint-disable-next-line
   }, [])
 
@@ -89,9 +60,7 @@ const  Sample = (props) => {
                       </div>
                     </div>
                     <div className="greeting-user text-center">
-                      <div className="profile-vector">
-                        <img className="img-fluid" src={user.photo_url} width='100' height='100' style={{borderRadius: '50%'}} alt="" />
-                      </div>
+                        <ApexCharts options={radialChart.options} series={radialChart.series} height="360" type="radialBar" /> 
                       <h4 className="f-w-600"><span id="greeting">{daytimes}</span> <span className="right-circle"><i className="fa fa-check-circle f-14 middle"></i></span></h4>
                       <p><span> {"Today's earrning is $405 & your sales increase rate is 3.7 over the last 24 hours"}</span></p>
                       <div className="whatsnew-btn"><a className="btn btn-primary" href="#javascript">{"Whats New !"}</a></div>

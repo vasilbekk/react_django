@@ -1,12 +1,16 @@
 import React, { Fragment, useState, useLayoutEffect, useEffect } from 'react';
 import { Col } from 'reactstrap'
-import { DollarSign, Plus, AlignCenter } from 'react-feather'
+import { DollarSign, Plus, AlignCenter, Zap } from 'react-feather'
 import { Link } from 'react-router-dom'
+import { getUserFromLocalStorage } from '../../actions/auth'
+
+
 const Leftbar = (props) => {
 
   const [levelMenu, setLevelMenu] = useState(false)
   const [sidebartoggle, setSidebartoggle] = useState(false)
   const width = useWindowSize()
+  const user = getUserFromLocalStorage()
 
   function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
@@ -85,7 +89,7 @@ const Leftbar = (props) => {
       </div>  
       <Col className="left-header horizontal-wrapper pl-0">
         <ul className="horizontal-menu">
-          <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><DollarSign /><span>Баланс</span></a>
+          <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><span>{user.balance} ₽</span></a>
             <ul className="header-level-menu menu-to-be-close" style={levelMenu ? { display: "" } : { display: "none" }}>
           {/*eslint-disable-next-line*/}
               <li><a href='#'><Plus/><span>Пополнить</span></a></li>
