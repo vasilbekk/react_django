@@ -1,4 +1,4 @@
-import {LogOut, Account, General, Dashboard, MainFunctionality, Default, Support, RaiseSupport, Inbox} from  '../../constant'
+import {LogOut, Account, General, Dashboard, MainFunctionality, Default, Support, RaiseSupport, Inbox, Bots, Day, Month} from  '../../constant'
 
 
 const translations = {
@@ -11,7 +11,11 @@ const translations = {
 	"Ecommerce": 'Продажи',
 	[Support]: "Помощь",
 	[RaiseSupport]: "Тех. Поддержка",
-	[Inbox]: "Почта"
+	[Inbox]: "Почта",
+	[Bots]: "Боты",
+	[Month]: "Месяц",
+	[Day]: "День",
+
 }
 
 
