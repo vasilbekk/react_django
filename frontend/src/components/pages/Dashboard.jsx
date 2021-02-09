@@ -12,7 +12,16 @@ import ClockCard from '../widgets/Clock'
 import ProfileGreetingCard from '../widgets/ProfileGreeting'
 import ContactUsCard from '../widgets/ContactUs'
 import OverviewDashboard from '../widgets/OverviewDashboard'
+import MessengerSimpleStatisticsCard from '../widgets/MessengerSimpleStatistics'
 import {General, Dashboard, Summary, Daily, Weekly, Yearly, Monthly, Store, Online, ReferralEarning, CashBalance, SalesForcasting} from '../../constant'
+
+import ChromeLogo from '../../assets/images/dashboard/chrome.png'
+import FirefoxLogo from '../../assets/images/dashboard/firefox.png'
+import SafariLogo from '../../assets/images/dashboard/safari.png'
+
+import TelegramLogo from '../../assets/images/dashboard/telegram.png'
+import VKLogo from '../../assets/images/dashboard/vk.png'
+import ViberLogo from '../../assets/images/dashboard/viber.png'
 
 const  Sample = (props) => {
   
@@ -43,6 +52,30 @@ const  Sample = (props) => {
               </Col>*/}
             <Col xl="4 xl-50" lg="12" className="calendar-sec box-col-6">
               <ContactUsCard />
+            </Col>
+            <Col md="4" sm="12">
+              <MessengerSimpleStatisticsCard 
+              src = {TelegramLogo}
+              count = {1}
+              perMonth = {30}
+              perDay = {1}
+              />
+            </Col>
+            <Col md="4" sm="12">
+              <MessengerSimpleStatisticsCard 
+              src = {VKLogo}
+              count = {0}
+              perMonth = {0}
+              perDay = {0}
+              />
+            </Col>
+            <Col md="4" sm="12">
+              <MessengerSimpleStatisticsCard 
+              src = {ViberLogo}
+              count = {2}
+              perMonth = {120}
+              perDay = {4}
+              />
             </Col>
             
             </Row>
