@@ -29,7 +29,8 @@ body {
 		}
 
 		.card {
-			background: $dark-card-background;
+			background-color: $dark-card-background;
+			background-blend-mode: overlay;
 		}
 
 		.b-r-light {
