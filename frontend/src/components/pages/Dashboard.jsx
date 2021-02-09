@@ -50,10 +50,10 @@ const  Sample = (props) => {
              {/*<Col xl="8 xl-100" className="dashboard-sec box-col-12">
                 <OverviewDashboard />
               </Col>*/}
-            <Col xl="4 xl-50" lg="12" className="calendar-sec box-col-6">
+            <Col xl="4 xl-50" lg="12" className="contact-sec box-col-6">
               <ContactUsCard />
             </Col>
-            <Col md="4" sm="12">
+            <Col md="4" sm="12" clasName='default-sec'>
               <MessengerSimpleStatisticsCard 
               src = {TelegramLogo}
               count = {1}
@@ -61,7 +61,7 @@ const  Sample = (props) => {
               perDay = {1}
               />
             </Col>
-            <Col md="4" sm="12">
+            <Col md="4" sm="12" clasName='default-sec'>
               <MessengerSimpleStatisticsCard 
               src = {VKLogo}
               count = {0}
@@ -69,7 +69,7 @@ const  Sample = (props) => {
               perDay = {0}
               />
             </Col>
-            <Col md="4" sm="12">
+            <Col md="4" sm="12" clasName='default-sec'>
               <MessengerSimpleStatisticsCard 
               src = {ViberLogo}
               count = {2}

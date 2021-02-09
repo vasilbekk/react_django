@@ -2518,6 +2518,11 @@ footer {
     order: unset;
   }
 
+  .contact-sec {
+    // ContactUs menu last forever
+    order: 99;
+  }
+
   .earning-card {
     margin-top: 0;
 
