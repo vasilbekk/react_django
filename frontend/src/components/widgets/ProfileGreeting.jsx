@@ -28,7 +28,7 @@ const ProfileGreeting = props => {
 		      </div>
 		    </div>
 		    <div className="greeting-user text-center">
-		        <ApexCharts options={radialChart.options} series={radialChart.series} height="200" type="radialBar" /> 
+		        <ApexCharts options={radialChart.options} series={radialChart.series} height="245" type="radialBar" /> 
 		      <h4 className="f-w-600">
 		      	<span id="greeting">7 days to block </span>
 		      	<span className="right-circle">
