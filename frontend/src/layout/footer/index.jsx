@@ -7,7 +7,7 @@ const Footer = (props) => {
         <Container fluid={true}>
           <Row>
             <Col md="12" className="footer-copyright text-center">
-              <p className="mb-0">{"Copyright 2020 © Cuba theme by pixelstrap."}</p>
+              <p className="mb-0">Powered by <a href='https://chatupper.com/' target='_blank'>«‎ChatUpper»</a> with ❤️</p>
             </Col>
           </Row>
         </Container>
