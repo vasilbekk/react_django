@@ -53,6 +53,9 @@ const Rightbar = (props) => {
       setUsername(user.username)
       setPhotoURL(user.photo_url)
     }
+    if ((navigator.language || navigator.userLanguage) == 'ru-RU') {
+      handleSetLanguage('ru')
+    }
     // eslint-disable-next-line
   }, []);
 

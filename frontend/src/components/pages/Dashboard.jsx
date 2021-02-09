@@ -53,8 +53,8 @@ const Dashboard = (props) => {
               <MessengerSimpleStatisticsCard 
               src = {TelegramLogo}
               count = {1}
-              perMonth = {30}
-              perDay = {1}
+              perMonth = {1500}
+              perDay = {30}
               />
             </Col>
             <Col md="4" sm="12">
@@ -69,8 +69,8 @@ const Dashboard = (props) => {
               <MessengerSimpleStatisticsCard 
               src = {ViberLogo}
               count = {2}
-              perMonth = {120}
-              perDay = {4}
+              perMonth = {1800}
+              perDay = {60}
               />
             </Col>
             

@@ -14,7 +14,7 @@ const MessengerSimpleStatistics = props => {
 		    <div className="media-body align-self-center">
 		      <div>
 		        <p>{props.t(Bots)}</p>
-		        <h4><span className="counter">
+		        <h4 className='rem-1'><span className="counter">
 		          <CountUp end={props.count} /></span></h4>
 		      </div>
 		      <div>
