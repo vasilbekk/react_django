@@ -29,8 +29,8 @@ export const radialChart = {
             margin: 15,
             size: '70%',
             image: getImageSmileOrSad(),
-            imageWidth: 156,
-            imageHeight: 156,
+            imageWidth: 112,
+            imageHeight: 112,
             imageClipped: false
           },
           dataLabels: {
