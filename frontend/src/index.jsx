@@ -38,7 +38,7 @@ const Root = (props) =>  {
     return(
       <Fragment>
         <Provider store={store}>
-        <BrowserRouter basename={`cabinet/`}>
+        <BrowserRouter basename={`/`}>
         <Switch>
             <Route path='/login' component={Login} />
             

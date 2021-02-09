@@ -39,14 +39,14 @@ const Dashboard = (props) => {
             {/*<Col xl="12 xl-100" lg="12" className="calendar-sec box-col-6">
               <ClockCard /> 
             </Col>*/}
-              <Col xl="8 xl-50" lg="12" className="morning-sec box-col-12">
+              <Col xl="7 xl-50" lg="12" className="morning-sec box-col-12">
                 <ProfileGreetingCard />
               </Col>
             {/* График */}
              {/*<Col xl="8 xl-100" className="dashboard-sec box-col-12">
                 <OverviewDashboard />
               </Col>*/}
-            <Col xl="4 xl-50" lg="12" className="contact-sec box-col-6">
+            <Col xl="5 xl-50" lg="12" className="contact-sec box-col-6">
               <ContactUsCard />
             </Col>
             <Col md="4" sm="12">
