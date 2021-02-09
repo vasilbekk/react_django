@@ -2,7 +2,10 @@ import React, { Fragment, useState, useLayoutEffect, useEffect } from 'react';
 import { Col } from 'reactstrap'
 import { DollarSign, Plus, AlignCenter, Zap } from 'react-feather'
 import { Link } from 'react-router-dom'
+import {translate} from 'react-switch-lang'
+
 import { getUserFromLocalStorage } from '../../actions/auth'
+import { MakePayment } from '../../constant'
 
 
 const Leftbar = (props) => {
@@ -92,7 +95,7 @@ const Leftbar = (props) => {
           <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><span>{user.balance} ₽</span></a>
             <ul className="header-level-menu menu-to-be-close" style={levelMenu ? { display: "" } : { display: "none" }}>
           {/*eslint-disable-next-line*/}
-              <li><a href='#'><Plus/><span>Пополнить</span></a></li>
+              <li><a href='#'><Plus/><span>{props.t(MakePayment)}</span></a></li>
               {/*<li><a href="#javascript"><Users/><span>{"Users"}</span></a>
                 <ul className="header-level-sub-menu">
                   <li><User/><span>{UserProfile}</span></li>
@@ -108,4 +111,4 @@ const Leftbar = (props) => {
   );
 }
 
-export default Leftbar;
+export default translate(Leftbar);

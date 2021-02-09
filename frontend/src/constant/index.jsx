@@ -9,7 +9,7 @@ export const Chat =  "Chat"
 export const MainFunctionality = "Main functionality"
 
 export const Bots = 'Bots'
-
+export const MakePayment = 'Payment'
 
 export const NewProduct =  "New Product"
 export const Location =  "Location"

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Card, CardBody } from 'reactstrap'
 import ApexCharts from 'react-apexcharts'
-import { Clock as ClockIcon } from 'react-feather'
-
+import { Clock as ClockIcon, Plus } from 'react-feather'
+import {translate} from 'react-switch-lang'
 
 import { radialChart } from '../../data/chartsData/radial-chart-data'
-
+import { MakePayment } from '../../constant'
 
 
 const ProfileGreeting = props => {
@@ -39,13 +39,13 @@ const ProfileGreeting = props => {
 		      	<span> {"Today's earrning is $405 & your sales increase rate is 3.7 over the last 24 hours"}</span>
 		      </p>
 		      <div className="whatsnew-btn">
-		      	<a className="btn btn-primary" href="#javascript">{"Whats New !"}</a>
+		      	<a className="btn btn-primary" href="#javascript">{props.t(MakePayment)}</a>
 		      </div>
-		      <div className="left-icon"><i className="fa fa-bell"> </i></div>
+		      {/*<div className="left-icon"><i className="fa fa-bell"> </i></div>*/}
 		    </div>
 		  </CardBody>
 		</Card>
 		)
 }
 
-export default ProfileGreeting;
+export default translate(ProfileGreeting);

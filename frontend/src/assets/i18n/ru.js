@@ -1,25 +1,27 @@
-import {LogOut, Account, General, Dashboard, MainFunctionality, Default, Support, RaiseSupport, Inbox, Bots, Day, Month, ContactUs, YourName, Email, Message, Send} from  '../../constant'
+// import {LogOut, Account, General, Dashboard, MainFunctionality, Default, Support, RaiseSupport, Inbox, Bots, Day, Month, ContactUs, YourName, Email, Message, Send} from  '../../constant'
+import * as t from  '../../constant'
 
 
 const translations = {
-	[Account]: "Аккаунт",
-	[LogOut]: 'Выйти',
-	[General]: "Основное",
-	[Dashboard]: 'Панель управления',
-	[MainFunctionality]: "Основные функции",
-	[Default]: 'Обычная',
+	[t.Account]: "Аккаунт",
+	[t.LogOut]: 'Выйти',
+	[t.General]: "Основное",
+	[t.Dashboard]: 'Панель управления',
+	[t.MainFunctionality]: "Основные функции",
+	[t.Default]: 'Обычная',
 	"Ecommerce": 'Продажи',
-	[Support]: "Помощь",
-	[RaiseSupport]: "Тех. Поддержка",
-	[Inbox]: "Почта",
-	[Bots]: "Боты",
-	[Month]: "Месяц",
-	[Day]: "День",
-	[ContactUs]: "Связаться с нами",
-	[YourName]: "Ваше имя",
-	[Email]: "Электропочта",
-	[Message]: "Сообщение",
-	[Send]: 'Отправить'
+	[t.Support]: "Помощь",
+	[t.RaiseSupport]: "Тех. Поддержка",
+	[t.Inbox]: "Почта",
+	[t.Bots]: "Боты",
+	[t.Month]: "Месяц",
+	[t.Day]: "День",
+	[t.ContactUs]: "Связаться с нами",
+	[t.YourName]: "Ваше имя",
+	[t.Email]: "Электропочта",
+	[t.Message]: "Сообщение",
+	[t.Send]: 'Отправить',
+	[t.MakePayment]: 'Пополнить'
 
 
 }
