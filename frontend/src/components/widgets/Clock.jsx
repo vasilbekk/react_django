@@ -19,7 +19,7 @@ const ClockWidget = () => {
 
 	return (
   <Fragment>
-		<Col xl="4 xl-100" lg="12" className="calendar-sec box-col-6">
+		
             <Card>
               <div className="mobile-clock-widget">
                 <div className="bg-svg">
@@ -58,7 +58,6 @@ const ClockWidget = () => {
                 </div>
               </div>
             </Card>
-          </Col>
         </Fragment>
 		)
 }
