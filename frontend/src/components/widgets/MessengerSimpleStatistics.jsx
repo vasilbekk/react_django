@@ -7,9 +7,8 @@ import { Bots, Month, Day } from '../../constant'
 
 
 const MessengerSimpleStatistics = props => {
-
 	return (
-		<Card className="browser-widget">
+		<Card className={`browser-widget ${props.count<=0?"":'active'}`}>
 		  <CardBody className="media card-body">
 		    <div className="media-img"><img src={props.src} alt="" /></div>
 		    <div className="media-body align-self-center">
