@@ -20,7 +20,7 @@ const MessengerSimpleStatistics = props => {
 		      <div>
 		        <p>{props.t(Month)}</p>
 		        <h4><span className="counter">
-		          <CountUp end={props.perMonth} /></span>{" ₽"}</h4>
+		          <CountUp end={props.perDay*30} /></span>{" ₽"}</h4>
 		      </div>
 		      <div>
 		        <p>{props.t(Day)}</p>

@@ -91,13 +91,8 @@ export const register = ({ username, password, email }) =>  dispatch => {
 }
 
 
-export const getUserFromLocalStorage = () => {
-	let user = JSON.parse(localStorage.getItem('user'))
-	if (!user) user = {}
-		user.balance = 500
-		user.payPerDay = 40
-	return user
-}
+export const getUserFromLocalStorage = () => JSON.parse(localStorage.getItem('user'))
+
 
 export const authUserByAction = (action) => {
 	if (action.payload.token) 
