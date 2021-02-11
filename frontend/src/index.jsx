@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store'
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import PrivateRoute from './common/PrivateRoute'
+import PermissionRoute from './common/PermissionRoute'
 import {TransitionGroup } from 'react-transition-group'
 import {routes} from './route';
 import ConfigDB from './data/customizer/config'

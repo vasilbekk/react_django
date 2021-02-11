@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group'
 import ConfigDB from '../data/customizer/config'
-import Error403 from '../components/auth/error403'
+
 
 const anim = ConfigDB.data.router_animation
 
