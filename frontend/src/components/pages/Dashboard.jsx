@@ -37,7 +37,7 @@ const Dashboard = (props) => {
                 <ClockCard /> 
               </Col>*/}
                 <Col xl="7 xl-50" lg="12" className="morning-sec box-col-12">
-                  <ProfileGreetingCard />
+                  <ProfileGreetingCard user={props.user}/>
                 </Col>
               {/* График */}
                {/*<Col xl="8 xl-100" className="dashboard-sec box-col-12">

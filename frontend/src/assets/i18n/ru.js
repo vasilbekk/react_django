@@ -21,7 +21,9 @@ const translations = {
 	[t.Email]: "Электропочта",
 	[t.Message]: "Сообщение",
 	[t.Send]: 'Отправить',
-	[t.MakePayment]: 'Пополнить'
+	[t.MakePayment]: 'Пополнить',
+	'Days': 'Дней',
+	'Days until the balance is depleted': "Количество дней до израсходования баланса."
 
 
 }

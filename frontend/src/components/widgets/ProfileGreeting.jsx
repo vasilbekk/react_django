@@ -6,14 +6,14 @@ import {translate} from 'react-switch-lang'
 
 import { radialChart } from '../../data/chartsData/radial-chart-data'
 import { MakePayment } from '../../constant'
+import { getDaysToBlock } from '../../actions/user'
 
 
 const ProfileGreeting = props => {
 	const today = new Date()
   	const curHr = today.getHours()
   	const curMi = today.getMinutes()
-
-  	const daysBeforeBlock = 7
+  	const daysToBlock = getDaysToBlock(props.user)
 
 	return (
 		<Card className="o-hidden profile-greeting">
@@ -30,13 +30,13 @@ const ProfileGreeting = props => {
 		    <div className="greeting-user text-center">
 		        <ApexCharts options={radialChart.options} series={radialChart.series} height="245" type="radialBar" /> 
 		      <h4 className="f-w-600">
-		      	<span id="greeting">7 days to block </span>
+		      	<span id="greeting">{daysToBlock} {props.t('Days')} </span>
 		      	<span className="right-circle">
 		      		<i className="fa fa-check-circle f-14 middle"></i>
 		      	</span>
 		      </h4>
 		      <p>
-		      	<span> {"Today's earrning is $405 & your sales increase rate is 3.7 over the last 24 hours"}</span>
+		      	<span> {props.t("Days until the balance is depleted.")}</span>
 		      </p>
 		      <div className="whatsnew-btn">
 		      	<a className="btn btn-primary" href="#javascript">{props.t(MakePayment)}</a>

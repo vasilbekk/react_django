@@ -1,27 +1,20 @@
- import configDB from '../customizer/config'
-import { getUserFromLocalStorage } from '../../actions/auth'
+import configDB from '../customizer/config'
+import store from '../../store'
 
+import { getDaysToBlock } from '../../actions/user'
 
 import sadFace from '../../assets/images/other-images/sad_clean.png'
 import smileFace from '../../assets/images/other-images/smile_clean.png'
 
-const getPerDay = user => {
-  var count = 0
-  user.bots.map((bot) => count+=parseFloat(bot.costPerDay))
-  return count
-}
 
-const user = getUserFromLocalStorage()
-const balance = user?user.balance:0
-const perDay = user?getPerDay(user):0
+const user = store.getState().auth.user
+const daysToBlock = getDaysToBlock(user)
 
-const daysToBlock = () => balance/perDay
-const getImageSmileOrSad = () => (daysToBlock()<=7)?sadFace:smileFace
-const getColorRedOrGreen = () => (daysToBlock()<=7)?'#e31e31':'#1be33d'
-
+const getImageSmileOrSad = () => (daysToBlock<=7)?sadFace:smileFace
+const getColorRedOrGreen = () => (daysToBlock<=7)?'#e31e31':'#1be33d'
 
 export const radialChart = {
-    series: [daysToBlock()/.3],
+    series: [(daysToBlock/30)*100],
     options : {
         chart: {
         height: 350,
