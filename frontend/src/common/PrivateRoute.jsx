@@ -2,8 +2,12 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group'
+import ConfigDB from '../data/customizer/config'
+import Error403 from '../components/auth/error403'
 
-const PrivateRoute = ({ path, component: Component, anim, auth, ...rest }) => (
+const anim = ConfigDB.data.router_animation
+
+const PrivateRoute = ({ path, component: Component, auth, ...rest }) => (
   <Route {...rest} exact path={`${process.env.PUBLIC_URL}${path}`}>
     {({ match }) => (
         <CSSTransition 
@@ -22,7 +26,7 @@ const PrivateRoute = ({ path, component: Component, anim, auth, ...rest }) => (
 );
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps)(PrivateRoute);

@@ -17,14 +17,10 @@ import Login from './components/auth/Login'
 
 
 const Root = (props) =>  {
-
-  const [anim, setAnim] = useState("");
-  const animation = ConfigDB.data.router_animation
   const abortController = new AbortController();
   
 
   useEffect(() => {
-      setAnim(animation)
       console.ignoredYellowBox = ["Warning: Each", "Warning: Failed"];
       console.disableYellowBox = true;
       // User auth
@@ -44,8 +40,8 @@ const Root = (props) =>  {
             
             <App>
                 <TransitionGroup>
-                  {routes.map(({ path, Component }) => (
-                      <PrivateRoute key={path} path={path} component={Component} anim={anim}/>
+                  {routes.map(({ path, Component, permission }) => (
+                      <PrivateRoute key={path} path={path} component={Component}/>
                       ))}
                 </TransitionGroup>
             </App>

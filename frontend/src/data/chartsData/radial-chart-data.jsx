@@ -6,14 +6,10 @@ import { getDaysToBlock } from '../../actions/user'
 import sadFace from '../../assets/images/other-images/sad_clean.png'
 import smileFace from '../../assets/images/other-images/smile_clean.png'
 
+const getImageSmileOrSad = (daysToBlock) => (daysToBlock<=7)?sadFace:smileFace
+const getColorRedOrGreen = (daysToBlock) => (daysToBlock<=7)?'#e31e31':'#1be33d'
 
-const user = store.getState().auth.user
-const daysToBlock = getDaysToBlock(user)
-
-const getImageSmileOrSad = () => (daysToBlock<=7)?sadFace:smileFace
-const getColorRedOrGreen = () => (daysToBlock<=7)?'#e31e31':'#1be33d'
-
-export const radialChart = {
+export const radialChart = daysToBlock => ({
     series: [(daysToBlock/30)*100],
     options : {
         chart: {
@@ -25,7 +21,7 @@ export const radialChart = {
           hollow: {
             margin: 15,
             size: '70%',
-            image: getImageSmileOrSad(),
+            image: getImageSmileOrSad(daysToBlock),
             imageWidth: 86,
             imageHeight: 86,
             imageClipped: false
@@ -46,7 +42,7 @@ export const radialChart = {
       },
       fill: {
         type: "gradient",
-        colors:[getColorRedOrGreen()],
+        colors:[getColorRedOrGreen(daysToBlock)],
         gradient: {
           shadeIntensity: 0,
           opacityFrom: 0.9,
@@ -59,4 +55,4 @@ export const radialChart = {
       },
       labels: ['Volatility'],
       }
-}
+})

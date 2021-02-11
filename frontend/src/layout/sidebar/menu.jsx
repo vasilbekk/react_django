@@ -11,8 +11,8 @@ export const MENUITEMS = [
         ]
        
     },
-    /*{
-        menutitle:"Support",
+    {
+        menutitle:"Admin Panel",
         menucontent:"",
         Items:[
             {
@@ -21,7 +21,7 @@ export const MENUITEMS = [
                 ]
             }
         ]          
-    },*/
+    },
     
             
 ]

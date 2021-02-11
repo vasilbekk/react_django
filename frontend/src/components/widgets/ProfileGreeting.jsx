@@ -4,7 +4,7 @@ import ApexCharts from 'react-apexcharts'
 import { Clock as ClockIcon, Plus } from 'react-feather'
 import {translate} from 'react-switch-lang'
 
-import { radialChart } from '../../data/chartsData/radial-chart-data'
+import { radialChart as getRadialChart } from '../../data/chartsData/radial-chart-data'
 import { MakePayment } from '../../constant'
 import { getDaysToBlock } from '../../actions/user'
 
@@ -14,6 +14,7 @@ const ProfileGreeting = props => {
   	const curHr = today.getHours()
   	const curMi = today.getMinutes()
   	const daysToBlock = getDaysToBlock(props.user)
+  	const radialChart = getRadialChart(daysToBlock)
 
 	return (
 		<Card className="o-hidden profile-greeting">
