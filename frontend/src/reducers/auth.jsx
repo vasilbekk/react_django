@@ -16,6 +16,7 @@ const initialState = {
 	user: getUserFromLocalStorage()
 }
 
+
 export default function(state=initialState, action) {
 	switch(action.type) {
 		case USER_LOADING:
@@ -24,13 +25,21 @@ export default function(state=initialState, action) {
 				isLoading: true
 			}
 		case USER_LOADED:
-		case LOGIN_SUCCESS:
 			authUserByAction(action)
 			return {
 				...state,
 				isAuthenticated: true,
 				isLoading: false,
 				user: action.payload
+			}
+		case LOGIN_SUCCESS:
+			authUserByAction(action)
+			return {
+				...state,
+				token: action.payload.token,
+				isAuthenticated: true,
+				isLoading: false,
+				user: action.payload.user
 			}
 
 		case AUTH_ERROR:

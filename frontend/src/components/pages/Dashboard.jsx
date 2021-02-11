@@ -46,7 +46,7 @@ const Dashboard = (props) => {
               <Col xl="5 xl-50" lg="12" className="contact-sec box-col-6">
                 <ContactUsCard />
               </Col>
-              <MessengersCard bots={props.user.bots}/>
+              <MessengersCard bots={props.user?props.user.bots:[]}/>
             </Row>
           </Container>   
          </Fragment> 

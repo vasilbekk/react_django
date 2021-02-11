@@ -3,6 +3,7 @@ import { Col } from 'reactstrap'
 import { DollarSign, Plus, AlignCenter, Zap } from 'react-feather'
 import { Link } from 'react-router-dom'
 import {translate} from 'react-switch-lang'
+import { connect } from 'react-redux'
 
 import { getUserFromLocalStorage } from '../../actions/auth'
 import { MakePayment } from '../../constant'
@@ -13,7 +14,6 @@ const Leftbar = (props) => {
   const [levelMenu, setLevelMenu] = useState(false)
   const [sidebartoggle, setSidebartoggle] = useState(false)
   const width = useWindowSize()
-  const user = getUserFromLocalStorage()
 
   function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
@@ -92,7 +92,7 @@ const Leftbar = (props) => {
       </div>  
       <Col className="left-header horizontal-wrapper pl-0">
         <ul className="horizontal-menu">
-          <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><span>{user.balance} ₽</span></a>
+          <li className="level-menu outside"><a className={levelMenu ? "nav-link active" : "nav-link"} href="#javascript" onClick={() => OnLevelMenu(levelMenu)}><span>{props.user?props.user.balance:0} ₽</span></a>
             <ul className="header-level-menu menu-to-be-close" style={levelMenu ? { display: "" } : { display: "none" }}>
           {/*eslint-disable-next-line*/}
               <li><a href='#'><Plus/><span>{props.t(MakePayment)}</span></a></li>
@@ -111,4 +111,8 @@ const Leftbar = (props) => {
   );
 }
 
-export default translate(Leftbar);
+const mapStateToProps = state => ({
+  user: state.auth.user
+})
+
+export default connect(mapStateToProps)(translate(Leftbar));
