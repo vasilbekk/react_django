@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import store from './store'
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import PrivateRoute from './common/PrivateRoute'
-import PermissionRoute from './common/PermissionRoute'
 import {TransitionGroup } from 'react-transition-group'
 import {routes} from './route';
 import ConfigDB from './data/customizer/config'
@@ -15,6 +14,7 @@ import ConfigDB from './data/customizer/config'
 // Auth
 import { loadUser } from './actions/auth'
 import Login from './components/auth/Login'
+import Error404 from './components/auth/error404'
 
 
 const Root = (props) =>  {
@@ -42,9 +42,10 @@ const Root = (props) =>  {
             <App>
                 <TransitionGroup>
                   {routes.map(({ path, Component, permission }) => (
-                      <PrivateRoute key={path} path={path} component={Component}/>
+                      <PrivateRoute key={path} path={path} component={Component} permission={permission}/>
                       ))}
                 </TransitionGroup>
+              <Route component={Error404} />
             </App>
         </Switch>
         </BrowserRouter>

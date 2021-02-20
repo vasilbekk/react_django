@@ -3,11 +3,12 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group'
 import ConfigDB from '../data/customizer/config'
-
+import { getUserPermissions, isUserHavePermission } from '../actions/user'
+import Error403 from '../components/auth/error403'
 
 const anim = ConfigDB.data.router_animation
 
-const PrivateRoute = ({ path, component: Component, auth, ...rest }) => (
+const PrivateRoute = ({ path, component: Component, auth, permission, ...rest }) => (
   <Route {...rest} exact path={`${process.env.PUBLIC_URL}${path}`}>
     {({ match }) => (
         <CSSTransition 
@@ -17,7 +18,11 @@ const PrivateRoute = ({ path, component: Component, auth, ...rest }) => (
         unmountOnExit
         >
         <div>
-        {auth.isAuthenticated?<Component/>:<Redirect to='/login'/>}
+        {auth.isAuthenticated?
+            isUserHavePermission(auth.user, permission)?
+                <Component/>
+            :<Error403 />
+        :<Redirect to='/login'/>}
         
         </div>
         </CSSTransition> 
