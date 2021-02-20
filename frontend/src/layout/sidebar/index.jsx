@@ -1,10 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import { MENUITEMS } from './menu';
+import { MENUITEMS, getMenuItemsByUser } from './menu';
 import { ArrowRight, ArrowLeft, Grid } from 'react-feather';
 import { Link } from 'react-router-dom'
 import { translate } from 'react-switch-lang';
 import configDB from '../../data/customizer/config';
+import {connect} from 'react-redux'
+
+
 
 const Sidebar = (props) => {
 
@@ -190,9 +193,8 @@ const Sidebar = (props) => {
                 <li className="back-btn">
                   <div className="mobile-back text-right"><span>{"Back"}</span><i className="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                 </li>
-                {
-                  MENUITEMS.map((Item, i) =>
-                    <Fragment key={i}>
+                  {getMenuItemsByUser(props.user).map((Item, i) => 
+                      <Fragment key={i}>
                       <li className="sidebar-main-title">
                         <div>
                           <h6 className="lan-1">{props.t(Item.menutitle)}</h6>
@@ -275,7 +277,7 @@ const Sidebar = (props) => {
                               </ul>
                               : ''}
                           </li>)}
-                    </Fragment>
+                      </Fragment>
                   )}
               </ul>
             </div>
@@ -286,4 +288,9 @@ const Sidebar = (props) => {
   );
 }
 
-export default translate(Sidebar);
+
+const mapStateToProps = state => ({
+  user: state.auth.user
+})
+
+export default connect(mapStateToProps)(translate(Sidebar));

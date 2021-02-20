@@ -45,6 +45,7 @@ export default function(state=initialState, action) {
 		case AUTH_ERROR:
 		case LOGIN_FAILED:
 		case LOGOUT_SUCCESS:
+			console.log('reducer: AUTH_ERROR, LOGIN_FAILED')
 			logoutUserByAction(action)
 			return {
 				...state,

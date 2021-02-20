@@ -11,3 +11,14 @@ export const getDaysToBlock = user => {
 	} else return 31
 }
 
+export const getUserPermissions = user => {
+	if (user) return user.permissions 
+		else return []
+}
+
+export const isUserHavePermission = (user, permission) => {
+	if (!permission) return true
+	return getUserPermissions(user).indexOf(permission) !== -1
+}
+
+
