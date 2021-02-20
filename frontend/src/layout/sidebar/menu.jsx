@@ -1,4 +1,4 @@
-import {Home,Box} from 'react-feather'
+import {Home, Box, User} from 'react-feather'
 import {General, MainFunctionality} from '../../constant'
 import { isUserHavePermission } from '../../actions/user'
 export const MENUITEMS = [
@@ -24,13 +24,12 @@ export const MENUITEMS = [
                 icon: Box, 
                 type: 'sub',
                 active: false,
-                permission: 'view_project',
                 children: [
                     { 
                         title: 'Create a Project', 
                         type: 'exteral_link', 
                         path: 'http://support.pixelstrap.com/help-center',
-                        permission: 1
+                        permission: 'add_project'
                     },
                     { 
                         title: 'List of Projects', 
@@ -39,9 +38,30 @@ export const MENUITEMS = [
                         permission: 'view_project'
                     }
                 ]
-            }
+            },
+            {
+                title: 'Users', 
+                icon: User, 
+                type: 'sub',
+                active: false,
+                children: [
+                    { 
+                        title: 'Create a User', 
+                        type: 'exteral_link', 
+                        path: 'http://support.pixelstrap.com/help-center',
+                        permission: "add_user"
+                    },
+                    { 
+                        title: 'List of Users', 
+                        type: 'exteral_link', 
+                        path: 'http://support.pixelstrap.com/help-center',
+                        permission: "view_user"
+                    }
+                ]
+            },
         ]          
-    },      
+    },
+
 ]
 
 
@@ -50,16 +70,13 @@ export const getMenuItemsByUser = user => {
     // Если у блока есть ограничение, то проверяет и возвращает, имеет приоритет надо всеми
     if (block.permission) return isUserHavePermission(user, block.permission)
     // Создает новый массив ссылок в блоке, отфильтрованных по ограничениям
-    var items = block.Items.filter(item => {
-        // Если у ссылки есть ограчение, проверяет
-        if (item.permission) {
-            // Если это не ссылка, а блок ссылок, то фильтрует и подссылки
-            var childrenStatus = true
-            if (item.children) {
-                // Заменяет на отфильтрованный массив подссылок
-                item.children = item.children.filter(subitem => isUserHavePermission(user, subitem.permission))
-                childrenStatus = item.children.length>0?true:false
-            }
+    var items = block.Items.filter(item => {       
+        // Если это не ссылка, а блок ссылок, то фильтрует и подссылки
+        var childrenStatus = true
+        if (item.children) {
+            // Заменяет на отфильтрованный массив подссылок
+            item.children = item.children.filter(subitem => isUserHavePermission(user, subitem.permission))
+            childrenStatus = item.children.length>0?true:false
             return isUserHavePermission(user, item.permission) && childrenStatus
         }
         // Если у ссылки нет ограничений, значит можно использовать
