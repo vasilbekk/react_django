@@ -1,13 +1,15 @@
 import {Home, Box, User} from 'react-feather'
-import {General, MainFunctionality} from '../../constant'
+import {General, MainFunctionality, Users, Projects, Dashboard} from '../../constant'
 import { isUserHavePermission } from '../../actions/user'
+
+
 export const MENUITEMS = [
     {
         menutitle:General,
         menucontent:MainFunctionality,
         Items:[
             {
-                title: 'Dashboard', 
+                title: Dashboard, 
                 icon: Home, type: 'link', 
                 active: false, 
                 path: `${process.env.PUBLIC_URL}/`
@@ -20,7 +22,7 @@ export const MENUITEMS = [
         menucontent:"",
         Items:[
             {
-                title: 'Projects', 
+                title: Projects, 
                 icon: Box, 
                 type: 'link',
                 active: false,
@@ -28,7 +30,7 @@ export const MENUITEMS = [
                 permission: 'view_project'
             },
             {
-                title: 'Users', 
+                title: Users, 
                 icon: User, 
                 type: 'link',
                 active: false,

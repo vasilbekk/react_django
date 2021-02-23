@@ -6,6 +6,9 @@ import {productColumns, getUserListData} from '../../data/userlist'
 import { ProductListTitle, ProductListDesc } from '../../constant';
 import { connect } from 'react-redux'
 import { loadAdminUserList } from '../../actions/admin'
+import { translate } from 'react-switch-lang'
+
+import { Users as UsersText, UsersListDescription } from '../../constant'
 
 
 const UserListPage = (props) => {
@@ -22,13 +25,13 @@ const UserListPage = (props) => {
                 <Col sm="12">
                     <Card>
                         <CardHeader>
-                            <h5>{ProductListTitle} </h5><span>{ProductListDesc}</span>
+                            <h5>{props.t(UsersText)} </h5><span>{props.t(UsersListDescription)}</span>
                         </CardHeader>
                         <CardBody>
                             <div className="table-responsive product-table">
                                 <DataTable
                                     noHeader
-                                    columns={productColumns}
+                                    columns={productColumns(props.t)}
                                     data={getUserListData(props.users)}
                                 />
                             </div>
@@ -46,6 +49,6 @@ const mapStateToProps = state => ({
   users: state.admin.users
 })
 
-export default connect(mapStateToProps)(UserListPage)
+export default connect(mapStateToProps)(translate(UserListPage))
 
 

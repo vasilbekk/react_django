@@ -23,7 +23,14 @@ const translations = {
 	[t.Send]: 'Отправить',
 	[t.MakePayment]: 'Пополнить',
 	'Days': 'Дней',
-	'Days until the balance is depleted': "Количество дней до израсходования баланса."
+	'Days until the balance is depleted': "Количество дней до израсходования баланса.",
+	[t.Balance]: 'Баланс',
+	[t.FirstName]: 'Имя',
+	[t.Username]: 'Юзернейм',
+	[t.Image]: 'Изображение',
+	[t.Projects]: 'Проекты',
+	[t.Users]: 'Пользователи',
+	[t.UsersListDescription]: 'Список пользователей проекта'
 
 
 }

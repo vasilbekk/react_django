@@ -11,6 +11,14 @@ export const MainFunctionality = "Main functionality"
 export const Bots = 'Bots'
 export const MakePayment = 'Payment'
 
+export const Balance = 'Balance'
+export const Users = 'Users'
+export const Projects = 'Projects'
+
+export const UsersListDescription = 'List of project users'
+
+
+
 export const NewProduct =  "New Product"
 export const Location =  "Location"
 export const RiskFactor =  "Risk Factor"
