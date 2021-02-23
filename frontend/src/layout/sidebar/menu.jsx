@@ -22,42 +22,18 @@ export const MENUITEMS = [
             {
                 title: 'Projects', 
                 icon: Box, 
-                type: 'sub',
+                type: 'link',
                 active: false,
-                children: [
-                    { 
-                        title: 'Create a Project', 
-                        type: 'exteral_link', 
-                        path: 'http://support.pixelstrap.com/help-center',
-                        permission: 'add_project'
-                    },
-                    { 
-                        title: 'List of Projects', 
-                        type: 'exteral_link', 
-                        path: 'http://support.pixelstrap.com/help-center',
-                        permission: 'view_project'
-                    }
-                ]
+                path: `${process.env.PUBLIC_URL}/admin/projects/`,
+                permission: 'view_project'
             },
             {
                 title: 'Users', 
                 icon: User, 
-                type: 'sub',
+                type: 'link',
                 active: false,
-                children: [
-                    { 
-                        title: 'Create a User', 
-                        type: 'exteral_link', 
-                        path: 'http://support.pixelstrap.com/help-center',
-                        permission: "add_user"
-                    },
-                    { 
-                        title: 'List of Users', 
-                        type: 'exteral_link', 
-                        path: 'http://support.pixelstrap.com/help-center',
-                        permission: "view_user"
-                    }
-                ]
+                path: `${process.env.PUBLIC_URL}/admin/users/`,
+                permission: 'view_user123'
             },
         ]          
     },
@@ -65,7 +41,7 @@ export const MENUITEMS = [
 ]
 
 
-export const getMenuItemsByUser = user => {
+export const getMenuItemsByUser = user => { 
    return MENUITEMS.filter(block => {
     // Если у блока есть ограничение, то проверяет и возвращает, имеет приоритет надо всеми
     if (block.permission) return isUserHavePermission(user, block.permission)
@@ -77,10 +53,9 @@ export const getMenuItemsByUser = user => {
             // Заменяет на отфильтрованный массив подссылок
             item.children = item.children.filter(subitem => isUserHavePermission(user, subitem.permission))
             childrenStatus = item.children.length>0?true:false
-            return isUserHavePermission(user, item.permission) && childrenStatus
         }
+        return isUserHavePermission(user, item.permission) && childrenStatus
         // Если у ссылки нет ограничений, значит можно использовать
-        return true
     })
     // Заменяет на отфильтрованный массив
     block.Items = items

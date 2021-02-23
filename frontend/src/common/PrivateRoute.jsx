@@ -13,7 +13,7 @@ const PrivateRoute = ({ path, component: Component, auth, permission, ...rest })
     {({ match }) => (
         <CSSTransition 
         in={match != null}
-        timeout={100}
+        timeout={500}
         classNames={anim} 
         unmountOnExit
         >
