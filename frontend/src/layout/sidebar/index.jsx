@@ -23,7 +23,8 @@ const Sidebar = (props) => {
       setCloseIcon(true)
     }
     document.querySelector(".left-arrow").classList.add("d-none")
-
+    setMainMenu(getMenuItemsByUser(props.user))
+    console.log(props.user)
     window.addEventListener('resize', handleResize)
     handleResize();
 

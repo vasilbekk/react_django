@@ -14,6 +14,7 @@ import ConfigDB from './data/customizer/config'
 // Auth
 import { loadUser } from './actions/auth'
 import Login from './components/auth/Login'
+
 import Error404 from './components/auth/error404'
 
 
@@ -38,6 +39,8 @@ const Root = (props) =>  {
         <BrowserRouter basename={`/`}>
         <Switch>
             <Route path='/login' component={Login} />
+           
+
             
             <App>
                 <TransitionGroup>
@@ -45,8 +48,8 @@ const Root = (props) =>  {
                       <PrivateRoute key={path} path={path} component={Component} permission={permission}/>
                       ))}
                 </TransitionGroup>
-              <Route component={Error404} />
             </App>
+            
         </Switch>
         </BrowserRouter>
         </Provider>
