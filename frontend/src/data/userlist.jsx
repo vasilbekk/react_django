@@ -2,20 +2,37 @@ import React from 'react';
 
 
 export const getUserListData = userlist => userlist.map(user => 
-        {
-            image: <img src={user.photo_url} style={{ width: 50, height: 50 }} alt="" />,
-            product_name: "Red Lipstick",
-            product_desc: "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens",
-            amount: "$10",
-            stock: <div className='font-success'>In Stock</div>,
-            start_date: "2011/4/19",
-            action:<div><span><i className="fa fa-trash" style={{ width: 35, fontSize: 16, padding: 11, color: '#e4566e' }}></i></span>
-            <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 16, padding: 11, color: 'rgb(40, 167, 69)' }}></i></span>
-            </div>
-            
-        },
+        ({
+                    image: <img src={user.photo_url} style={{ width: 50, height: 50 }} alt="" />,
+                    product_name: "Red Lipstick",
+                    product_desc: "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens",
+                    amount: "$10",
+                    stock: <div className='font-success'>In Stock</div>,
+                    start_date: "2011/4/19",
+                    action:<div><span><i className="fa fa-trash" style={{ width: 35, fontSize: 16, padding: 11, color: '#e4566e' }}></i></span>
+                    <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 16, padding: 11, color: 'rgb(40, 167, 69)' }}></i></span>
+                    </div>
+                    
+                })
     )
-    
+
+// export const getUserListData1 = userlist => ([
+//         {
+//             image: <img src={user.photo_url} style={{ width: 50, height: 50 }} alt="" />,
+//             product_name: "Red Lipstick",
+//             product_desc: "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens",
+//             amount: "$10",
+//             stock: <div className='font-success'>In Stock</div>,
+//             start_date: "2011/4/19",
+//             action:<div><span><i className="fa fa-trash" style={{ width: 35, fontSize: 16, padding: 11, color: '#e4566e' }}></i></span>
+//             <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 16, padding: 11, color: 'rgb(40, 167, 69)' }}></i></span>
+//             </div>
+            
+//         }
+//         ]
+//     )
+
+
 
 export const productColumns = [
     {

@@ -33,7 +33,7 @@ export const MENUITEMS = [
                 type: 'link',
                 active: false,
                 path: `${process.env.PUBLIC_URL}/admin/users/`,
-                permission: 'view_user123'
+                permission: 'view_user'
             },
         ]          
     },
