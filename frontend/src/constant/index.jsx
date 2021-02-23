@@ -16,6 +16,7 @@ export const Users = 'Users'
 export const Projects = 'Projects'
 
 export const UsersListDescription = 'List of project users'
+export const AdminPanel = 'Admin Panel'
 
 
 

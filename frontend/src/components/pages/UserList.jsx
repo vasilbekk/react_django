@@ -7,8 +7,9 @@ import { ProductListTitle, ProductListDesc } from '../../constant';
 import { connect } from 'react-redux'
 import { loadAdminUserList } from '../../actions/admin'
 import { translate } from 'react-switch-lang'
+import Loader from '../../layout/loader'
 
-import { Users as UsersText, UsersListDescription } from '../../constant'
+import { Users as UsersText, UsersListDescription, AdminPanel as AdminPanelText } from '../../constant'
 
 
 const UserListPage = (props) => {
@@ -19,7 +20,7 @@ const UserListPage = (props) => {
 
     return (
           <Fragment>
-          <Breadcrumb parent="ECommerce" title="Product List"/>
+          <Breadcrumb parent={props.t(AdminPanelText)} title={props.t(UsersText)}/>
           <Container fluid={true}>
             <Row>
                 <Col sm="12">
@@ -33,6 +34,10 @@ const UserListPage = (props) => {
                                     noHeader
                                     columns={productColumns(props.t)}
                                     data={getUserListData(props.users)}
+                                    expandOnRowClicked
+                                    expandableRows
+                                    progressPending={props.usersLoading?true:false}
+                                    highlightOnHover
                                 />
                             </div>
                         </CardBody>
@@ -46,7 +51,8 @@ const UserListPage = (props) => {
   }
 
 const mapStateToProps = state => ({
-  users: state.admin.users
+  users: state.admin.users,
+  usersLoading: state.admin.usersLoading
 })
 
 export default connect(mapStateToProps)(translate(UserListPage))

@@ -13,7 +13,7 @@ export const loadAdminUserList = (dispatch, getState) => {
 	api.get('/users/', tokenConfig(getState))
 		.then(res => dispatch({type: ADMIN_USERS_LOADED, payload:res.data}))
 		.catch(err => {
-			toast.error(err.response.data)
+			toast.error('Не удалось загрузить список пользователей')
 			dispatch({type:ADMIN_USERS_LOADING_FAILED})
 		})
 }

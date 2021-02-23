@@ -30,7 +30,8 @@ const translations = {
 	[t.Image]: 'Изображение',
 	[t.Projects]: 'Проекты',
 	[t.Users]: 'Пользователи',
-	[t.UsersListDescription]: 'Список пользователей проекта'
+	[t.UsersListDescription]: 'Список пользователей проекта',
+	[t.AdminPanel]: 'Админ-панель'
 
 
 }
