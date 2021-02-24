@@ -10,13 +10,8 @@ const anim = ConfigDB.data.router_animation
 
 const PrivateRoute = ({ path, component: Component, auth, permission, ...rest }) => (
   <Route {...rest} exact path={`${process.env.PUBLIC_URL}${path}`}>
-    {({ match }) => (
-        <CSSTransition 
-        in={match != null}
-        timeout={500}
-        classNames={anim} 
-        unmountOnExit
-        >
+    
+        
         <div>
         {auth.isAuthenticated?
             isUserHavePermission(auth.user, permission)?
@@ -25,8 +20,8 @@ const PrivateRoute = ({ path, component: Component, auth, permission, ...rest })
         :<Redirect to='/login'/>}
         
         </div>
-        </CSSTransition> 
-    )}
+        
+    
   </Route>
 );
 

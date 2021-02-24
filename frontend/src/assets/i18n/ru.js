@@ -31,7 +31,9 @@ const translations = {
 	[t.Projects]: 'Проекты',
 	[t.Users]: 'Пользователи',
 	[t.UsersListDescription]: 'Список пользователей проекта',
-	[t.AdminPanel]: 'Админ-панель'
+	[t.AdminPanel]: 'Админ-панель',
+	[t.Loading]: 'Загрузка...',
+	[t.Profile]: 'Профиль'
 
 
 }

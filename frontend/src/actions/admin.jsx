@@ -9,7 +9,6 @@ export const getUsersFromState = state => state?state.admin?state.admin.users:[]
 
 export const loadAdminUserList = (dispatch, getState) => {
 	dispatch({type: ADMIN_USERS_LOADING})
-
 	api.get('/users/', tokenConfig(getState))
 		.then(res => dispatch({type: ADMIN_USERS_LOADED, payload:res.data}))
 		.catch(err => {

@@ -7,11 +7,10 @@ import { ProductListTitle, ProductListDesc } from '../../constant';
 import { connect } from 'react-redux'
 import { loadAdminUserList } from '../../actions/admin'
 import { translate } from 'react-switch-lang'
-import Loader from '../../layout/loader'
 
-import { Users as UsersText, UsersListDescription, AdminPanel as AdminPanelText } from '../../constant'
+import { Users as UsersText, UsersListDescription, AdminPanel as AdminPanelText, Loading as LoadingText } from '../../constant'
 
-
+import { Redirect } from 'react-router-dom'
 const UserListPage = (props) => {
 
   useEffect(() => {
@@ -38,6 +37,7 @@ const UserListPage = (props) => {
                                     expandableRows
                                     progressPending={props.usersLoading?true:false}
                                     highlightOnHover
+                                    expandableRowsComponent={null}
                                 />
                             </div>
                         </CardBody>
