@@ -16,3 +16,7 @@ export const loadAdminUserList = (dispatch, getState) => {
 			dispatch({type:ADMIN_USERS_LOADING_FAILED})
 		})
 }
+
+export const loadAdminUserById = (userId, setUser) => {
+	api.get('/users/'+userId, tokenConfig(getState))
+}

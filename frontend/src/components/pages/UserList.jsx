@@ -37,7 +37,7 @@ const UserListPage = (props) => {
                                     expandableRows
                                     progressPending={props.usersLoading?true:false}
                                     highlightOnHover
-                                    expandableRowsComponent={null}
+                                    expandableRowsComponent={<_Redirect />}
                                 />
                             </div>
                         </CardBody>
@@ -49,6 +49,11 @@ const UserListPage = (props) => {
     )
 
   }
+
+const _Redirect = props => {
+  return <Redirect to={`${props.data.id}`} />
+}
+
 
 const mapStateToProps = state => ({
   users: state.admin.users,

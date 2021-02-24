@@ -33,7 +33,8 @@ const translations = {
 	[t.UsersListDescription]: 'Список пользователей проекта',
 	[t.AdminPanel]: 'Админ-панель',
 	[t.Loading]: 'Загрузка...',
-	[t.Profile]: 'Профиль'
+	[t.Profile]: 'Профиль',
+	[t.EditProfile]: 'Редактор профиля'
 
 
 }

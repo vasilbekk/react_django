@@ -3,12 +3,19 @@ import { Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Compan
 import { Container, Row, Col, Card, CardHeader, CardBody, CardFooter, Media, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import Breadcrumb from '../../layout/breadcrumb'
 import { translate } from 'react-switch-lang'
+import { useParams } from 'react-router-dom'
 
 
 
 export const UserEditCard = props => {
-	// props.data is object with userData
+	const { userId } = useParams()
+	const [user, setUser] = useState({})
 
+	useEffect(() => {
+
+	}, [])
+
+	// props.data is object with userData
 	const fakedata=[]
 	return (
 		<div className="edit-profile">
@@ -33,7 +40,7 @@ export const UserEditCard = props => {
 		                <Media className="img-70 rounded-circle" alt="" src={null} />
 		              </div>
 		              <Col>
-		                <h3 className="mb-1">{MarkJecno}</h3>
+		                <h3 className="mb-1">{props.data.first_name}</h3>
 		                <p className="mb-4">{Designer}</p>
 		              </Col>
 		            </Row>
