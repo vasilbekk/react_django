@@ -18,5 +18,5 @@ export const loadAdminUserList = (dispatch, getState) => {
 }
 
 export const loadAdminUserById = (userId, setUser) => {
-	api.get('/users/'+userId, tokenConfig(getState))
+	api.get('/users/'+userId)
 }
