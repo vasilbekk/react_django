@@ -6,15 +6,23 @@ import { translate } from 'react-switch-lang'
 import { useParams } from 'react-router-dom'
 
 import { api, USERS_URL } from '../../actions/requests'
-
+import { tokenConfig } from '../../actions/auth'
+import { toast } from 'react-toastify'
 
 export const UserEditCard = props => {
 	const { userId } = useParams()
 	const [user, setUser] = useState({})
 
 	useEffect(() => {
-		api.get(USERS_URL, )
+		// load user data and set it by setUser
+		loadUser()
 	}, [])
+
+	const loadUser = () => {
+		api.get(USERS_URL + userId, tokenConfig())
+			.then(res => {setUser(res.data)})
+			.catch(err => toast('Не удалось загрузить данные о пользователе ID'+userId))
+	}
 
 	// props.data is object with userData
 	const fakedata=[]
@@ -38,11 +46,11 @@ export const UserEditCard = props => {
 		          <Form>
 		            <Row className="mb-2">
 		              <div className="col-auto">
-		                <Media className="img-70 rounded-circle" alt="" src={null} />
+		                <Media className="img-70 rounded-circle" alt="" src={user.photo_url} />
 		              </div>
 		              <Col>
-		                <h3 className="mb-1">{props.data.first_name}</h3>
-		                <p className="mb-4">{Designer}</p>
+		                <h3 className="mb-1">{user.first_name}</h3>
+		                <p className="mb-4">{user.username}</p>
 		              </Col>
 		            </Row>
 		            <FormGroup>
@@ -51,7 +59,7 @@ export const UserEditCard = props => {
 		            </FormGroup>
 		            <FormGroup>
 		              <Label className="form-label">{EmailAddress}</Label>
-		              <Input className="form-control" placeholder="your-email@domain.com" />
+		              <Input className="form-control" placeholder="your-email@domain.com" defaultValue={user.email} />
 		            </FormGroup>
 		            <FormGroup>
 		              <Label className="form-label">{Password}</Label>
