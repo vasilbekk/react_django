@@ -113,10 +113,9 @@ export const logoutUserByAction = (action) => {
 }
 
 // Setup config with token
-export const tokenConfig = getState => {
+export const tokenConfig = () => {
 	// Get token
 	const token = localStorage.getItem('token')
-	console.log(token)
 
 	const config = {
 		headers: {

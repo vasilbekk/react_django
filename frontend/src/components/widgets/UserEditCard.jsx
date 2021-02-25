@@ -5,6 +5,7 @@ import Breadcrumb from '../../layout/breadcrumb'
 import { translate } from 'react-switch-lang'
 import { useParams } from 'react-router-dom'
 
+import { api, USERS_URL } from '../../actions/requests'
 
 
 export const UserEditCard = props => {
@@ -12,7 +13,7 @@ export const UserEditCard = props => {
 	const [user, setUser] = useState({})
 
 	useEffect(() => {
-
+		api.get(USERS_URL, )
 	}, [])
 
 	// props.data is object with userData
