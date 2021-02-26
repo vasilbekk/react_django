@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Company,Username,UsersCountryMenu,AboutMe,UpdateProfile,UsersTableTitle,FirstName,LastName,Address,EmailAddress,PostalCode,Country, UsersTableHeader,City,Edit,Update,Delete} from '../../constant'
+import { Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Company,Username,UsersCountryMenu,AboutMe,UpdateProfile,UsersTableTitle,FirstName,LastName,Address,EmailAddress,PostalCode,Country,City,Edit,Update,Delete} from '../../constant'
 import { Container, Row, Col, Card, CardHeader, CardBody, CardFooter, Media, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import Breadcrumb from '../../layout/breadcrumb'
 import { translate } from 'react-switch-lang'
@@ -29,7 +29,6 @@ export const UserEditCard = props => {
 	}
 
 	// props.data is object with userData
-	const fakedata=[]
 	return (
 		<div className="edit-profile">
 		  <Row>
@@ -84,7 +83,7 @@ export const UserEditCard = props => {
 		    <Col xl="8">
 		      <Form className="card">
 		        <CardHeader>
-		          <h4 className="card-title mb-0">{EditProfile}</h4>
+		          <h4 className="card-title mb-0">{props.t(EditProfile)}</h4>
 		          <div className="card-options">
 		            <a className="card-options-collapse" href="#javascript">
 		              <i className="fe fe-chevron-up"></i>
@@ -169,43 +168,6 @@ export const UserEditCard = props => {
 		    </Col>
 		    
 		    <MessengersCard bots={getUserBots(user)} />
-		    
-		    <Col md="12">
-		      <Card>
-		        <CardHeader>
-		          <h4 className="card-title mb-0">{UsersTableTitle}</h4>
-		          <div className="card-options"><a className="card-options-collapse" href="#javascript" data-toggle="card-collapse"><i className="fe fe-chevron-up"></i></a><a className="card-options-remove" href="#javascript" data-toggle="card-remove"><i className="fe fe-x"></i></a></div>
-		        </CardHeader>
-		        <div className="table-responsive">
-		          <table className="table card-table table-vcenter text-nowrap">
-		            <thead>
-		              <tr>
-		                {UsersTableHeader.map((items,i) => 
-		                  <th key={i}>{items}</th>
-		                )}
-		              </tr>
-		            </thead>
-		            <tbody>
-
-		              {fakedata.map((items,i) => 
-		                <tr key={i}>
-		                  <td><a className="text-inherit" href="#javascript">{items.projectName} </a></td>
-		                  <td>{items.date}</td>
-		                  <td><span className="status-icon bg-success"></span>{items.status}</td>
-		                  <td>{items.price}</td>
-		                  <td className="text-right">
-		                    <Button color="primary" size="sm"><i className="fa fa-pencil"></i> {Edit}</Button>
-		                    <Button color="transparent" size="sm"><i className="fa fa-link"></i> {Update}</Button>
-		                    <Button color="danger" size="sm"><i className="fa fa-trash"></i> {Delete}</Button>
-		                  </td>
-		                </tr>
-		              )}
-		              
-		            </tbody>
-		          </table>
-		        </div>
-		      </Card>
-		    </Col>
 		  </Row>
 		</div>
 		)
