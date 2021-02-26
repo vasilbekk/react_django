@@ -17,7 +17,7 @@ export const Projects = 'Projects'
 
 export const UsersListDescription = 'List of project users'
 export const AdminPanel = 'Admin Panel'
-
+export const ID = 'ID'
 
 
 export const NewProduct =  "New Product"

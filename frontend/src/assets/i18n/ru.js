@@ -34,7 +34,10 @@ const translations = {
 	[t.AdminPanel]: 'Админ-панель',
 	[t.Loading]: 'Загрузка...',
 	[t.Profile]: 'Профиль',
-	[t.EditProfile]: 'Редактор профиля'
+	[t.EditProfile]: 'Редактор профиля',
+	[t.ID]: 'Идентификатор',
+	[t.Save]: 'Сохранить',
+	[t.UpdateProfile]: 'Обновить профиль'
 
 
 }

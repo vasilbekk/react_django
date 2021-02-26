@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { Balance, Email, Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Company,Username,UsersCountryMenu,AboutMe,UpdateProfile,UsersTableTitle,FirstName,LastName,Address,EmailAddress,PostalCode,Country,City,Edit,Update,Delete} from '../../constant'
-import { Container, Row, Col, Card, CardHeader, CardBody, CardFooter, Media, Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Balance, ID, Email, Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Company,Username,UsersCountryMenu,AboutMe,UpdateProfile,UsersTableTitle,FirstName,LastName,Address,EmailAddress,PostalCode,Country,City,Edit,Update,Delete} from '../../constant'
+import { Container, Row, Col, Card, CardHeader, CardBody, CardFooter, Media, Form, FormGroup, Label, Input, InputGroup,InputGroupAddon, InputGroupText,  Button } from 'reactstrap'
+import { Users } from 'react-feather'
 import Breadcrumb from '../../layout/breadcrumb'
 import { translate } from 'react-switch-lang'
 import { useParams } from 'react-router-dom'
@@ -11,6 +12,7 @@ import { getUserBots } from '../../actions/user'
 import { toast } from 'react-toastify'
 
 import MessengersCard from './MessengersCard' 
+
 
 
 export const UserEditCard = props => {
@@ -56,25 +58,22 @@ export const UserEditCard = props => {
 		                <p className="mb-4">{user.username}</p>
 		              </Col>
 		            </Row>
-		            {/*<FormGroup>
-		            		              <h6 className="form-label">{Bio}</h6>
-		            		              <Input type="textarea" className="form-control" rows="5" defaultValue="On the other hand, we denounce with righteous indignation" />
-		            		            </FormGroup>
-		            		            <FormGroup>
-		            		              <Label className="form-label">{EmailAddress}</Label>
-		            		              <Input className="form-control" placeholder="your-email@domain.com" defaultValue={user.email} />
-		            		            </FormGroup>
-		            		            <FormGroup>
-		            		              <Label className="form-label">{Password}</Label>
-		            		              <Input className="form-control" type="password" defaultValue="password" />
-		            		            </FormGroup */}
-
+		            <FormGroup>
+		              <Label className="form-label">{props.t(ID)}</Label>
+		              <InputGroup>
+                        <InputGroupAddon addonType="prepend"><InputGroupText>{"#"}</InputGroupText></InputGroupAddon>
+		              	<Input className="form-control" placeholder={props.t(ID)} value={user.id} readOnly/>
+                      </InputGroup>
+		            </FormGroup>
 		            <FormGroup>
 		              <Label className="form-label">{props.t(Balance)}</Label>
-		              <Input icon='users' className="form-control" placeholder={props.t(Balance)} value={user.balance} readOnly/>
+		              <InputGroup>
+                        <InputGroupAddon addonType="prepend"><InputGroupText>{"₽"}</InputGroupText></InputGroupAddon>
+		              	<Input className="form-control" placeholder={props.t(Balance)} value={user.balance} readOnly/>
+                      </InputGroup>
 		            </FormGroup>
 		            <div className="form-footer">
-		              <button className="btn btn-primary btn-block">{Save}</button>
+		              <button className="btn btn-primary btn-block">{props.t(Save)}</button>
 		            </div>
 		          </Form>
 		        </CardBody>
@@ -95,74 +94,29 @@ export const UserEditCard = props => {
 		        </CardHeader>
 		        <CardBody>
 		          <Row>
-		            <Col lg="4">
-		              <FormGroup>
-		                <Label className="form-label">{Company}</Label>
-		                <Input className="form-control" type="text" placeholder="Company" />
-		              </FormGroup>
-		            </Col>
-		            <Col sm="6" md="3">
+		            <Col sm="6" md="6">
 		              <FormGroup>
 		                <Label className="form-label">{props.t(Username)}</Label>
 		                <Input className="form-control" type="text" placeholder={props.t(Username)} defaultValue={user.username}/>
 		              </FormGroup>
 		            </Col>
-		            <Col sm="6" md="4">
+		            <Col sm="6" md="6">
 		              <FormGroup>
 		                <Label className="form-label">{props.t(Email)}</Label>
 		                <Input className="form-control" type="email" placeholder={props.t(Email)} defaultValue={user.email} />
 		              </FormGroup>
 		            </Col>
-		            <Col sm="6" md="6">
+		            <Col sm="6" md="12">
 		              <FormGroup>
 		                <Label className="form-label">{props.t(FirstName)}</Label>
 		                <Input className="form-control" type="text" placeholder={props.t(Company)} defaultValue={user.first_name}/>
 		              </FormGroup>
 		            </Col>
-		            <Col sm="6" md="6">
-		              <FormGroup>
-		                <Label className="form-label">{props.t(LastName)}</Label>
-		                <Input className="form-control" type="text" placeholder={props.t(LastName)} defaultValue={user.last_name}/>
-		              </FormGroup>
-		            </Col>
-		            <Col md="12">
-		              <FormGroup>
-		                <Label className="form-label">{Address}</Label>
-		                <Input className="form-control" type="text" placeholder="Home Address" />
-		              </FormGroup>
-		            </Col>
-		            <Col sm="6" md="4">
-		              <FormGroup>
-		                <Label className="form-label">{City}</Label>
-		                <Input className="form-control" type="text" placeholder="City" />
-		              </FormGroup>
-		            </Col>
-		            <Col sm="6" md="3">
-		              <FormGroup>
-		                <Label className="form-label">{PostalCode}</Label>
-		                <Input className="form-control" type="number" placeholder="ZIP Code" />
-		              </FormGroup>
-		            </Col>
-		            <Col md="5">
-		              <FormGroup>
-		                <Label className="form-label">{Country}</Label>
-		                <Input type="select" name="select" className="form-control btn-square">
-		                  {UsersCountryMenu.map((items,i) => 
-		                    <option key={i}>{items}</option>
-		                  )}
-		                </Input>
-		              </FormGroup>
-		            </Col>
-		            <Col md="12">
-		              <div className="form-group mb-0">
-		                <Label className="form-label">{AboutMe}</Label>
-		                <Input type="textarea" className="form-control" rows="5" placeholder="Enter About your description" />
-		              </div>
-		            </Col>
+		            
 		          </Row>
 		        </CardBody>
 		        <CardFooter className="text-right">
-		          <button className="btn btn-primary" type="submit">{UpdateProfile}</button>
+		          <button className="btn btn-primary" type="submit">{props.t(UpdateProfile)}</button>
 		        </CardFooter>
 		      </Form>
 		    </Col>
