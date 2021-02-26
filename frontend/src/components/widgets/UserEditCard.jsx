@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Company,Username,UsersCountryMenu,AboutMe,UpdateProfile,UsersTableTitle,FirstName,LastName,Address,EmailAddress,PostalCode,Country,City,Edit,Update,Delete} from '../../constant'
+import { Balance, Email, Profile,Bio,MarkJecno,Designer,Password,Website,Save,EditProfile,Company,Username,UsersCountryMenu,AboutMe,UpdateProfile,UsersTableTitle,FirstName,LastName,Address,EmailAddress,PostalCode,Country,City,Edit,Update,Delete} from '../../constant'
 import { Container, Row, Col, Card, CardHeader, CardBody, CardFooter, Media, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import Breadcrumb from '../../layout/breadcrumb'
 import { translate } from 'react-switch-lang'
@@ -70,8 +70,8 @@ export const UserEditCard = props => {
 		            		            </FormGroup */}
 
 		            <FormGroup>
-		              <Label className="form-label">{Website}</Label>
-		              <Input className="form-control" placeholder="http://Uplor .com" />
+		              <Label className="form-label">{props.t(Balance)}</Label>
+		              <Input icon='users' className="form-control" placeholder={props.t(Balance)} value={user.balance} readOnly/>
 		            </FormGroup>
 		            <div className="form-footer">
 		              <button className="btn btn-primary btn-block">{Save}</button>
@@ -103,26 +103,26 @@ export const UserEditCard = props => {
 		            </Col>
 		            <Col sm="6" md="3">
 		              <FormGroup>
-		                <Label className="form-label">{Username}</Label>
-		                <Input className="form-control" type="text" placeholder="Username" />
+		                <Label className="form-label">{props.t(Username)}</Label>
+		                <Input className="form-control" type="text" placeholder={props.t(Username)} defaultValue={user.username}/>
 		              </FormGroup>
 		            </Col>
 		            <Col sm="6" md="4">
 		              <FormGroup>
-		                <Label className="form-label">{EmailAddress}</Label>
-		                <Input className="form-control" type="email" placeholder="Email" />
+		                <Label className="form-label">{props.t(Email)}</Label>
+		                <Input className="form-control" type="email" placeholder={props.t(Email)} defaultValue={user.email} />
 		              </FormGroup>
 		            </Col>
 		            <Col sm="6" md="6">
 		              <FormGroup>
-		                <Label className="form-label">{FirstName}</Label>
-		                <Input className="form-control" type="text" placeholder="Company" />
+		                <Label className="form-label">{props.t(FirstName)}</Label>
+		                <Input className="form-control" type="text" placeholder={props.t(Company)} defaultValue={user.first_name}/>
 		              </FormGroup>
 		            </Col>
 		            <Col sm="6" md="6">
 		              <FormGroup>
-		                <Label className="form-label">{LastName}</Label>
-		                <Input className="form-control" type="text" placeholder="Last Name" />
+		                <Label className="form-label">{props.t(LastName)}</Label>
+		                <Input className="form-control" type="text" placeholder={props.t(LastName)} defaultValue={user.last_name}/>
 		              </FormGroup>
 		            </Col>
 		            <Col md="12">
