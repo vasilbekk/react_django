@@ -21,4 +21,5 @@ export const isUserHavePermission = (user, permission) => {
 	return getUserPermissions(user).indexOf(permission) !== -1
 }
 
+export const getUserBots = user => user.bots || []
 

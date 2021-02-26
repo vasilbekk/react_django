@@ -7,7 +7,11 @@ import { useParams } from 'react-router-dom'
 
 import { api, USERS_URL } from '../../actions/requests'
 import { tokenConfig } from '../../actions/auth'
+import { getUserBots } from '../../actions/user'
 import { toast } from 'react-toastify'
+
+import MessengersCard from './MessengersCard' 
+
 
 export const UserEditCard = props => {
 	const { userId } = useParams()
@@ -53,18 +57,19 @@ export const UserEditCard = props => {
 		                <p className="mb-4">{user.username}</p>
 		              </Col>
 		            </Row>
-		            <FormGroup>
-		              <h6 className="form-label">{Bio}</h6>
-		              <Input type="textarea" className="form-control" rows="5" defaultValue="On the other hand, we denounce with righteous indignation" />
-		            </FormGroup>
-		            <FormGroup>
-		              <Label className="form-label">{EmailAddress}</Label>
-		              <Input className="form-control" placeholder="your-email@domain.com" defaultValue={user.email} />
-		            </FormGroup>
-		            <FormGroup>
-		              <Label className="form-label">{Password}</Label>
-		              <Input className="form-control" type="password" defaultValue="password" />
-		            </FormGroup>
+		            {/*<FormGroup>
+		            		              <h6 className="form-label">{Bio}</h6>
+		            		              <Input type="textarea" className="form-control" rows="5" defaultValue="On the other hand, we denounce with righteous indignation" />
+		            		            </FormGroup>
+		            		            <FormGroup>
+		            		              <Label className="form-label">{EmailAddress}</Label>
+		            		              <Input className="form-control" placeholder="your-email@domain.com" defaultValue={user.email} />
+		            		            </FormGroup>
+		            		            <FormGroup>
+		            		              <Label className="form-label">{Password}</Label>
+		            		              <Input className="form-control" type="password" defaultValue="password" />
+		            		            </FormGroup */}
+
 		            <FormGroup>
 		              <Label className="form-label">{Website}</Label>
 		              <Input className="form-control" placeholder="http://Uplor .com" />
@@ -162,6 +167,9 @@ export const UserEditCard = props => {
 		        </CardFooter>
 		      </Form>
 		    </Col>
+		    
+		    <MessengersCard bots={getUserBots(user)} />
+		    
 		    <Col md="12">
 		      <Card>
 		        <CardHeader>
